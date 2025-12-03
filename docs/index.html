@@ -3,38 +3,132 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simran Kharbanda</title>
+    <title>Simran Kharbanda | Portfolio</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
             background: #fafafa;
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            color: #222;
+        }
+        header {
+            background: #111;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
         }
         h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
+            margin: 0;
+            font-size: 42px;
+        }
+        h2 {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 28px;
         }
         p {
-            font-size: 20px;
-            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+            padding: 0 20px;
         }
-        .footer {
+        .section {
+            padding: 40px 0;
+        }
+        .projects {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .project {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #eee;
             margin-top: 40px;
             font-size: 14px;
-            color: #777;
         }
     </style>
 </head>
 
 <body>
-    <h1>Simran Kharbanda</h1>
-    <p>Portfolio coming soon.</p>
 
-    <div class="footer">
-        © 2025 Simran Kharbanda
+<header>
+    <h1>Simran Kharbanda</h1>
+    <p>Machine Learning | LLMs | RAG | Agentic AI</p>
+</header>
+
+<section class="section">
+    <h2>About Me</h2>
+    <p>
+        I’m a graduate student in Applied Machine Learning at the University of Maryland.
+        I work on large language models, RAG pipelines, hallucination detection,
+        model reliability, and scalable ML systems. Previously, I’ve built 
+        agentic LLM workflows, fine-tuned models like Flan-T5 and Mistral-7B,
+        and engineered large-scale data & ML pipelines at EY, Flipkart, and MIT Manipal.
+    </p>
+</section>
+
+<section class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+
+        <div class="project">
+            <h3>Scientific Research Analyzer</h3>
+            <p>
+                Agentic LLM workflow for semantic retrieval, summarization,
+                citation verification, and hallucination checks. Improved retrieval 
+                reliability by 24% using HuggingFace TGI + Dask.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Smart Shopping Assistant</h3>
+            <p>
+                Multimodal RAG + OCR system for extracting structured data from receipts,
+                with LLM consistency validation and grounded reasoning.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Movie Recommendation System</h3>
+            <p>
+                Hybrid ALS + Autoencoder recommender on 15M+ interactions with PySpark
+                feature engineering. Improved CTR by 12% and RMSE by 15%.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Abstractive Summarization</h3>
+            <p>
+                Seq2Seq and Transformer-based summarization evaluated for factual 
+                consistency on CNN/DailyMail.
+            </p>
+        </div>
+
     </div>
+</section>
+
+<section class="section">
+    <h2>Contact</h2>
+    <p>
+        Email: simrank3574@gmail.com <br>
+        LinkedIn: linkedin.com/in/simran-kharbanda
+    </p>
+</section>
+
+<footer>
+    © 2025 Simran Kharbanda
+</footer>
+
 </body>
 </html>
