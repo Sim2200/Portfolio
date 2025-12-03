@@ -37,7 +37,6 @@
             text-decoration: none;
         }
 
-        /* Layout */
         .container {
             width: 100%;
             max-width: 1120px;
@@ -74,11 +73,6 @@
             letter-spacing: 0.05em;
             font-size: 14px;
             text-transform: uppercase;
-        }
-
-        .nav-tagline {
-            font-size: 12px;
-            color: var(--text-muted);
         }
 
         .nav-links {
@@ -166,22 +160,6 @@
             max-width: 520px;
             line-height: 1.6;
             margin-bottom: 22px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .tag-pill {
-            font-size: 11px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            color: var(--text-muted);
-            background: rgba(15, 23, 42, 0.8);
         }
 
         .hero-actions {
@@ -284,7 +262,7 @@
             color: #e5e7eb;
         }
 
-        /* Section Shared */
+        /* Sections */
         section {
             padding: 40px 0;
         }
@@ -301,7 +279,6 @@
             margin-bottom: 22px;
         }
 
-        /* Two-column section layout */
         .section-grid {
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
@@ -309,7 +286,6 @@
             align-items: flex-start;
         }
 
-        /* Cards & lists */
         .card {
             background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), #020617);
             border-radius: var(--radius-md);
@@ -350,7 +326,6 @@
             color: var(--text-muted);
         }
 
-        /* Skills grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -369,7 +344,6 @@
             line-height: 1.5;
         }
 
-        /* Projects grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -403,7 +377,6 @@
             margin-bottom: 8px;
         }
 
-        /* Publications */
         .pub-item {
             margin-bottom: 10px;
             font-size: 13px;
@@ -415,7 +388,6 @@
             font-weight: 500;
         }
 
-        /* Contact */
         .contact-box {
             background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), #020617);
             border-radius: var(--radius-md);
@@ -443,7 +415,6 @@
             text-align: center;
         }
 
-        /* Responsive */
         @media (max-width: 850px) {
             .hero-grid,
             .section-grid {
@@ -475,7 +446,6 @@
     <div class="nav-inner">
         <div class="nav-left">
             <div class="nav-name">Simran Kharbanda</div>
-            <div class="nav-tagline">ML & LLM Engineering · RAG · Reliability</div>
         </div>
         <nav class="nav-links">
             <a href="#about" class="nav-link">About</a>
@@ -495,27 +465,19 @@
             <div>
                 <div class="hero-badge">
                     <div class="dot"></div>
-                    <span>Actively seeking Summer 2026 ML / LLM roles</span>
+                    <span>Actively seeking Summer 2026 internships</span>
                 </div>
 
                 <h1 class="hero-title">
-                    Building <span>reliable LLM & ML systems</span> end to end.
+                    Building <span>reliable ML systems</span> end to end.
                 </h1>
 
                 <p class="hero-subtitle">
                     I’m a graduate student in Applied Machine Learning at the University of Maryland,
-                    focused on large language models, RAG pipelines, hallucination detection, and
-                    scalable ML systems. Previously, I’ve worked at EY, Flipkart, Akzo Nobel,
-                    Hero MotoCorp, Cisco, and as a research assistant at MIT Manipal.
+                    working on large-scale ML, LLM-powered systems, and reliability. Previously, I’ve
+                    worked at EY, Flipkart, Akzo Nobel, Hero MotoCorp, Cisco, and as a research assistant
+                    at MIT Manipal.
                 </p>
-
-                <div class="hero-tags">
-                    <span class="tag-pill">LLMs & Fine-tuning (Flan-T5, Mistral-7B)</span>
-                    <span class="tag-pill">RAG & Agentic Workflows</span>
-                    <span class="tag-pill">Hallucination & Factuality Evaluation</span>
-                    <span class="tag-pill">PyTorch · PySpark · Airflow</span>
-                    <span class="tag-pill">FastAPI · Kafka · MLflow</span>
-                </div>
 
                 <div class="hero-actions">
                     <a class="btn-primary" href="#" target="_blank" rel="noreferrer">
@@ -532,24 +494,25 @@
                     <div class="hero-card-header">
                         <div>
                             <div class="hero-label">Current focus</div>
-                            <div class="hero-card-title">Trustworthy LLM systems</div>
+                            <div class="hero-card-title">Reinforcement Learning for Warehouse Optimization</div>
                         </div>
-                        <div class="hero-pill">RAG · Reliability</div>
+                        <div class="hero-pill">RL · Optimization</div>
                     </div>
                     <div class="hero-card-text">
-                        Recent work includes:
+                        I am currently working on a reinforcement learning project focused on
+                        optimizing warehouse picking and routing strategies. The work involves:
                         <ul style="padding-left: 18px; margin: 6px 0 4px; font-size: 13px;">
-                            <li>Agentic scientific research analyzer with citation verification.</li>
-                            <li>Enterprise RAG chatbot for 10K+ Excel files at EY.</li>
-                            <li>Myeloma treatment prediction with transformer-based models.</li>
+                            <li>Designing custom environments for single-agent and multi-agent RL.</li>
+                            <li>Benchmarking PPO, MAPPO, and DQN-style approaches for navigation efficiency.</li>
+                            <li>Building simulation pipelines to study reward shaping and agent behavior.</li>
+                            <li>Evaluating policies on realistic warehouse layouts and constraints.</li>
                         </ul>
                     </div>
 
                     <div class="hero-metrics">
-                        <span class="metric-pill">+24% retrieval reliability</span>
-                        <span class="metric-pill">AUC +12% (clinical model)</span>
-                        <span class="metric-pill">&lt;400 ms latency RAG</span>
-                        <span class="metric-pill">120M+ events at Flipkart</span>
+                        <span class="metric-pill">18% reduction in path inefficiency</span>
+                        <span class="metric-pill">More stable pick-time variance</span>
+                        <span class="metric-pill">Custom RL environment</span>
                     </div>
                 </div>
             </div>
@@ -562,24 +525,23 @@
             <div>
                 <h2 class="section-title">About</h2>
                 <p class="section-subtitle">
-                    Applied ML & LLM engineering with a focus on reliability, interpretability, and
-                    real-world deployment.
+                    Applied machine learning with a focus on reliable, interpretable systems deployed in the real world.
                 </p>
                 <p style="font-size:14px; color: var(--text-muted); line-height:1.7;">
                     I’m currently pursuing my M.S. in Applied Machine Learning at the University of Maryland.
-                    Before this, I completed my B.Tech in Electronics and Communication with a Data Science
-                    minor at Manipal Institute of Technology, where I also worked as a research assistant
-                    on multimodal ML for Myeloma treatment prediction.
+                    Before this, I completed my B.Tech in Electronics and Communication with a Data Science minor
+                    at Manipal Institute of Technology, where I also worked as a research assistant on multimodal
+                    ML for Myeloma treatment prediction.
                     <br/><br/>
-                    Across roles at EY, Flipkart, and research, I’ve worked on everything from
-                    LLM fine-tuning, RAG pipelines, and hallucination evaluation to large-scale data
-                    engineering, ML deployment, and model monitoring. I enjoy projects where I can
-                    combine research thinking with practical engineering.
+                    Across roles at EY, Flipkart, and in research, I’ve worked on LLM fine-tuning, RAG pipelines,
+                    hallucination and factuality evaluation, large-scale data engineering, ML deployment, and
+                    model-health monitoring. I enjoy projects where I can blend research thinking with practical
+                    engineering, especially when they involve building reliable AI systems that work in the real world.
                 </p>
             </div>
             <div>
                 <h2 class="section-title">Skills</h2>
-                <p class="section-subtitle">Tools I use most often.</p>
+                <p class="section-subtitle">Tools and technologies I use most often.</p>
                 <div class="skills-grid">
                     <div class="card">
                         <div class="skill-cat-title">Languages</div>
@@ -704,7 +666,7 @@
     <!-- Projects -->
     <section id="projects">
         <h2 class="section-title">Highlighted Projects</h2>
-        <p class="section-subtitle">A sample of projects focused on LLMs, RAG, reliability, and large-scale ML.</p>
+        <p class="section-subtitle">A sample of projects focused on LLMs, reliability, RL, and large-scale ML.</p>
 
         <div class="projects-grid">
             <div class="project-card">
@@ -826,7 +788,7 @@
     <!-- Contact -->
     <section id="contact">
         <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Feel free to reach out for collaborations, roles, or just to talk ML & LLMs.</p>
+        <p class="section-subtitle">Feel free to reach out for collaborations, internships, or to talk ML, LLMs, and RL.</p>
 
         <div class="contact-box">
             <div class="contact-row">
