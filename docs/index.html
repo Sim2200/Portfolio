@@ -6,128 +6,857 @@
     <title>Simran Kharbanda | Portfolio</title>
 
     <style>
+        :root {
+            --bg: #050816;
+            --bg-alt: #0b1020;
+            --card: #111827;
+            --accent: #6366f1;
+            --accent-soft: rgba(99, 102, 241, 0.15);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-subtle: #1f2933;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #fafafa;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+            background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
             margin: 0;
-            padding: 0;
-            color: #222;
+            color: var(--text-main);
+            scroll-behavior: smooth;
         }
-        header {
-            background: #111;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
-        h1 {
-            margin: 0;
-            font-size: 42px;
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
         }
-        h2 {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 28px;
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom, rgba(5, 8, 22, 0.95), rgba(5, 8, 22, 0.7));
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
-        p {
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .nav-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-name {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .nav-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 14px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            position: relative;
+            padding-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #e5e7eb;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            border-radius: 999px;
+            transition: width 0.18s ease-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 56px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 32px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #f97316, #ef4444);
+            box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.25);
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
             font-size: 18px;
+            color: var(--text-muted);
+            max-width: 520px;
             line-height: 1.6;
-            max-width: 800px;
-            margin: auto;
-            padding: 0 20px;
+            margin-bottom: 22px;
         }
-        .section {
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tag-pill {
+            font-size: 11px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 14px 40px rgba(79, 70, 229, 0.5);
+        }
+
+        .btn-primary span {
+            font-size: 16px;
+        }
+
+        .btn-ghost {
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            cursor: pointer;
+            font-size: 14px;
+            background: transparent;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.2), rgba(15, 23, 42, 0.98) 40%, #020617);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .hero-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }
+
+        .hero-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .hero-card-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .hero-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .metric-pill {
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            color: #e5e7eb;
+        }
+
+        /* Section Shared */
+        section {
             padding: 40px 0;
         }
-        .projects {
-            max-width: 900px;
-            margin: auto;
-            padding: 0 20px;
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
-        .project {
-            background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #eee;
-            margin-top: 40px;
+
+        .section-subtitle {
             font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        /* Two-column section layout */
+        .section-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+            gap: 28px;
+            align-items: flex-start;
+        }
+
+        /* Cards & lists */
+        .card {
+            background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), #020617);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 18px 18px 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 13px;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .chip {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-cat-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .skill-list {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: var(--radius-md);
+            padding: 16px 16px 14px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(129, 140, 248, 0.9);
+            box-shadow: 0 18px 40px rgba(79, 70, 229, 0.45);
+        }
+
+        .project-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Publications */
+        .pub-item {
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .pub-title {
+            color: #e5e7eb;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), #020617);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+        }
+
+        .contact-row {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+        }
+
+        .contact-value a {
+            color: #e5e7eb;
+        }
+
+        footer {
+            padding: 18px 0 28px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .hero-grid,
+            .section-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .nav-links {
+                font-size: 13px;
+                gap: 12px;
+            }
+            .hero {
+                padding-top: 32px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Simran Kharbanda</h1>
-    <p>Machine Learning | LLMs | RAG | Agentic AI</p>
-</header>
-
-<section class="section">
-    <h2>About Me</h2>
-    <p>
-        I’m a graduate student in Applied Machine Learning at the University of Maryland.
-        I work on large language models, RAG pipelines, hallucination detection,
-        model reliability, and scalable ML systems. Previously, I’ve built 
-        agentic LLM workflows, fine-tuned models like Flan-T5 and Mistral-7B,
-        and engineered large-scale data & ML pipelines at EY, Flipkart, and MIT Manipal.
-    </p>
-</section>
-
-<section class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-
-        <div class="project">
-            <h3>Scientific Research Analyzer</h3>
-            <p>
-                Agentic LLM workflow for semantic retrieval, summarization,
-                citation verification, and hallucination checks. Improved retrieval 
-                reliability by 24% using HuggingFace TGI + Dask.
-            </p>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="nav-inner">
+        <div class="nav-left">
+            <div class="nav-name">Simran Kharbanda</div>
+            <div class="nav-tagline">ML & LLM Engineering · RAG · Reliability</div>
         </div>
-
-        <div class="project">
-            <h3>Smart Shopping Assistant</h3>
-            <p>
-                Multimodal RAG + OCR system for extracting structured data from receipts,
-                with LLM consistency validation and grounded reasoning.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Movie Recommendation System</h3>
-            <p>
-                Hybrid ALS + Autoencoder recommender on 15M+ interactions with PySpark
-                feature engineering. Improved CTR by 12% and RMSE by 15%.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Abstractive Summarization</h3>
-            <p>
-                Seq2Seq and Transformer-based summarization evaluated for factual 
-                consistency on CNN/DailyMail.
-            </p>
-        </div>
-
+        <nav class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
     </div>
-</section>
+</div>
 
-<section class="section">
-    <h2>Contact</h2>
-    <p>
-        Email: simrank3574@gmail.com <br>
-        LinkedIn: linkedin.com/in/simran-kharbanda
-    </p>
-</section>
+<div class="container">
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge">
+                    <div class="dot"></div>
+                    <span>Actively seeking Summer 2026 ML / LLM roles</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Building <span>reliable LLM & ML systems</span> end to end.
+                </h1>
+
+                <p class="hero-subtitle">
+                    I’m a graduate student in Applied Machine Learning at the University of Maryland,
+                    focused on large language models, RAG pipelines, hallucination detection, and
+                    scalable ML systems. Previously, I’ve worked at EY, Flipkart, Akzo Nobel,
+                    Hero MotoCorp, Cisco, and as a research assistant at MIT Manipal.
+                </p>
+
+                <div class="hero-tags">
+                    <span class="tag-pill">LLMs & Fine-tuning (Flan-T5, Mistral-7B)</span>
+                    <span class="tag-pill">RAG & Agentic Workflows</span>
+                    <span class="tag-pill">Hallucination & Factuality Evaluation</span>
+                    <span class="tag-pill">PyTorch · PySpark · Airflow</span>
+                    <span class="tag-pill">FastAPI · Kafka · MLflow</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="btn-primary" href="#" target="_blank" rel="noreferrer">
+                        View Resume <span>↗</span>
+                    </a>
+                    <a class="btn-ghost" href="mailto:simrank3574@gmail.com">
+                        Email me
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div>
+                            <div class="hero-label">Current focus</div>
+                            <div class="hero-card-title">Trustworthy LLM systems</div>
+                        </div>
+                        <div class="hero-pill">RAG · Reliability</div>
+                    </div>
+                    <div class="hero-card-text">
+                        Recent work includes:
+                        <ul style="padding-left: 18px; margin: 6px 0 4px; font-size: 13px;">
+                            <li>Agentic scientific research analyzer with citation verification.</li>
+                            <li>Enterprise RAG chatbot for 10K+ Excel files at EY.</li>
+                            <li>Myeloma treatment prediction with transformer-based models.</li>
+                        </ul>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <span class="metric-pill">+24% retrieval reliability</span>
+                        <span class="metric-pill">AUC +12% (clinical model)</span>
+                        <span class="metric-pill">&lt;400 ms latency RAG</span>
+                        <span class="metric-pill">120M+ events at Flipkart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Skills -->
+    <section id="about">
+        <div class="section-grid">
+            <div>
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">
+                    Applied ML & LLM engineering with a focus on reliability, interpretability, and
+                    real-world deployment.
+                </p>
+                <p style="font-size:14px; color: var(--text-muted); line-height:1.7;">
+                    I’m currently pursuing my M.S. in Applied Machine Learning at the University of Maryland.
+                    Before this, I completed my B.Tech in Electronics and Communication with a Data Science
+                    minor at Manipal Institute of Technology, where I also worked as a research assistant
+                    on multimodal ML for Myeloma treatment prediction.
+                    <br/><br/>
+                    Across roles at EY, Flipkart, and research, I’ve worked on everything from
+                    LLM fine-tuning, RAG pipelines, and hallucination evaluation to large-scale data
+                    engineering, ML deployment, and model monitoring. I enjoy projects where I can
+                    combine research thinking with practical engineering.
+                </p>
+            </div>
+            <div>
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">Tools I use most often.</p>
+                <div class="skills-grid">
+                    <div class="card">
+                        <div class="skill-cat-title">Languages</div>
+                        <div class="skill-list">
+                            Python, R, C++, JavaScript, SQL, Go
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="skill-cat-title">ML & DL</div>
+                        <div class="skill-list">
+                            PyTorch, TensorFlow, Scikit-learn, LightGBM, XGBoost, Random Forests,
+                            CNNs, Seq2Seq, Transformers
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="skill-cat-title">LLMs & GenAI</div>
+                        <div class="skill-list">
+                            Flan-T5, Mistral-7B, RAG, LoRA fine-tuning, agentic workflows,
+                            factuality & hallucination detection, SHAP, model failure analysis
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="skill-cat-title">Data & Infra</div>
+                        <div class="skill-list">
+                            PySpark, Kafka, Airflow, MLflow, FastAPI, Docker, PostgreSQL, Grafana,
+                            AWS, Kubernetes
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Research and industry roles where I’ve applied ML and LLMs in practice.</p>
+
+        <div class="section-grid">
+            <div>
+                <div class="card">
+                    <div class="card-title">Research Assistant · MIT Manipal</div>
+                    <div class="card-meta">Jan 2024 – Jun 2025 · Myeloma treatment prediction</div>
+                    <div class="card-body">
+                        Built transformer (TabTransformer, ClinicalBERT) and CNN pipelines (ResNet-18, 3D U-Net)
+                        for multimodal clinical data (BTD, FCM, PET/CT, bone marrow) to predict treatment response
+                        in Myeloma patients. Used SHAP to identify IBV as a novel biomarker, improving AUC by 12%.
+                        Developed robustness tests (stress, counterfactual, OOD) to study transformer failure modes
+                        and interpretability.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">PyTorch</span>
+                        <span class="chip">Transformers</span>
+                        <span class="chip">SHAP</span>
+                        <span class="chip">Spark</span>
+                        <span class="chip">MLflow</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Generative AI Intern · Ernst & Young</div>
+                    <div class="card-meta">Jun 2024 – Aug 2024 · RAG & LLM Systems</div>
+                    <div class="card-body">
+                        Built and deployed an enterprise RAG chatbot using Flan-T5 and Mistral-7B to automate
+                        analytics over 10K+ corporate Excel files, with &lt;400 ms latency and 99.3% retrieval precision.
+                        Performed LoRA fine-tuning on Flan-T5, optimized embeddings and prompt templates via
+                        400+ A/B tests, and designed factuality evaluation tests to detect hallucinations and
+                        improve grounded responses.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">Flan-T5</span>
+                        <span class="chip">Mistral-7B</span>
+                        <span class="chip">LangChain</span>
+                        <span class="chip">FAISS</span>
+                        <span class="chip">LoRA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <div class="card-title">Data Intern · Flipkart</div>
+                    <div class="card-meta">Feb 2025 – Jun 2025 · Recsys & Forecasting</div>
+                    <div class="card-body">
+                        Analyzed 120M+ e-commerce events with PySpark + SQL to improve recommendation CTR by 14%
+                        and reduce churn by 11%. Built LightGBM and Prophet models (MAE &lt; 5%) for inventory
+                        forecasting across 12 warehouses, deployed FastAPI services with 20–40 ms latency,
+                        and automated Airflow pipelines. Implemented feature-drift and model-health monitoring
+                        in Grafana to keep models stable in production.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">PySpark</span>
+                        <span class="chip">LightGBM</span>
+                        <span class="chip">Prophet</span>
+                        <span class="chip">FastAPI</span>
+                        <span class="chip">Airflow</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Internships · Akzo Nobel · Hero MotoCorp · Cisco</div>
+                    <div class="card-meta">2024 · Analytics, Forecasting, Cybersecurity</div>
+                    <div class="card-body">
+                        At Akzo Nobel, built anomaly detection dashboards using Isolation Forest & ARIMA,
+                        reducing production defects by 12%. At Hero MotoCorp, modeled 5M+ sales records with
+                        Random Forest & Prophet, improving forecasting MAE by 18%. At Cisco, engineered Python-based
+                        intrusion detection (Snort + TF-IDF) pipelines achieving a 93% F1-score and 28% fewer
+                        false alerts.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">Isolation Forest</span>
+                        <span class="chip">ARIMA</span>
+                        <span class="chip">Random Forest</span>
+                        <span class="chip">Snort</span>
+                        <span class="chip">Security Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Highlighted Projects</h2>
+        <p class="section-subtitle">A sample of projects focused on LLMs, RAG, reliability, and large-scale ML.</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-title">Scientific Research Analyzer</div>
+                <div class="project-body">
+                    Agentic LLM workflow for reading research papers, retrieving context, summarizing, and verifying
+                    citations, with hallucination checks and source grounding. Improved retrieval reliability by 24%
+                    using HuggingFace TGI + Dask + LangFuse.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Agentic LLM</span>
+                    <span class="chip">LangChain</span>
+                    <span class="chip">TGI</span>
+                    <span class="chip">Dask</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Smart Shopping Assistant</div>
+                <div class="project-body">
+                    Multimodal LLM pipeline combining OCR and RAG to extract structured data from grocery receipts,
+                    with LLM consistency and validation checks to keep outputs grounded in the source.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">RAG</span>
+                    <span class="chip">OCR</span>
+                    <span class="chip">LLM Validation</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Movie Recommendation System</div>
+                <div class="project-body">
+                    Hybrid ALS + Autoencoder recommender on 15M+ interactions from MovieLens-25M and Netflix Prize,
+                    with PySpark feature engineering and A/B testing. Improved CTR by 12%, watch duration by 15%,
+                    and reduced RMSE by 15%.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">ALS</span>
+                    <span class="chip">Autoencoder</span>
+                    <span class="chip">PySpark</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Real-Time Credit Card Fraud Detection</div>
+                <div class="project-body">
+                    Kafka + Spark streaming pipeline with Random Forest & XGBoost models for real-time fraud detection,
+                    achieving 95%+ accuracy and &lt;400 ms end-to-end latency.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Kafka</span>
+                    <span class="chip">Spark Streaming</span>
+                    <span class="chip">XGBoost</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Abstractive Text Summarization</div>
+                <div class="project-body">
+                    Implemented attention-based Seq2Seq Bi-LSTM and Transformer baselines (BERT, T5) on the
+                    CNN/DailyMail dataset, benchmarking both quality and factual consistency.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Seq2Seq</span>
+                    <span class="chip">BERT</span>
+                    <span class="chip">T5</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Myeloma Treatment Response Prediction</div>
+                <div class="project-body">
+                    Multimodal clinical ML for predicting Myeloma treatment outcomes using tabular, imaging,
+                    and flow cytometry data, with biomarker discovery (IBV) and transformer robustness analysis.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Clinical ML</span>
+                    <span class="chip">Multimodal</span>
+                    <span class="chip">Explainability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <p class="section-subtitle">Selected academic work and ongoing research.</p>
+        <div class="section-grid">
+            <div>
+                <div class="card">
+                    <div class="card-title">Impact of Social Media Influencers on Stock Market Trends and Product Sales</div>
+                    <div class="card-meta">Global Finance Journal (Taylor &amp; Francis)</div>
+                    <div class="card-body">
+                        Co-authored a peer-reviewed study analyzing 395 Indian IPOs (2014–2025) to quantify the effect
+                        of financial influencers on IPO pricing and investor behavior. Using VADER, TextBlob, and BERT-based
+                        sentiment and engagement analysis, we showed that Finfluencer endorsements are associated with a
+                        7.2% increase in traditional underpricing, 6.8% higher initial returns (p &lt; 0.05), and 10.9x higher
+                        retail investor demand (p &lt; 0.01).
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <div class="card-title">Ongoing Work</div>
+                    <div class="card-body">
+                        <div class="pub-item">
+                            <span class="pub-title">Multimodal ML for Myeloma Treatment Response (Under Review)</span><br/>
+                            Joint work with MIT Manipal & KMC collaborators exploring transformers and CNNs for integrating
+                            imaging and clinical data, biomarker discovery (IBV), and robust model evaluation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Feel free to reach out for collaborations, roles, or just to talk ML & LLMs.</p>
+
+        <div class="contact-box">
+            <div class="contact-row">
+                <span class="contact-label">Email: </span>
+                <span class="contact-value">
+                    <a href="mailto:simrank3574@gmail.com">simrank3574@gmail.com</a>
+                </span>
+            </div>
+            <div class="contact-row">
+                <span class="contact-label">LinkedIn: </span>
+                <span class="contact-value">
+                    <a href="https://www.linkedin.com/in/simran-kharbanda" target="_blank" rel="noreferrer">
+                        linkedin.com/in/simran-kharbanda
+                    </a>
+                </span>
+            </div>
+            <div class="contact-row">
+                <span class="contact-label">GitHub: </span>
+                <span class="contact-value">
+                    <a href="https://github.com/Sim2200" target="_blank" rel="noreferrer">
+                        github.com/Sim2200
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>
 
 <footer>
-    © 2025 Simran Kharbanda
+    © 2025 Simran Kharbanda · Built with HTML & CSS · Hosted on GitHub Pages
 </footer>
 
 </body>
