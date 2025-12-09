@@ -685,95 +685,105 @@
         </div>
     </div>
 </section>
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">A comprehensive collection of ML, CV, NLP, and analytics projects I’ve built.</p>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A few projects that I made :)</p>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-title">Scientific Research Analyzer</div>
-                <div class="project-body">
-                    Agentic LLM workflow for reading research papers, retrieving context, summarizing, and verifying
-                    citations, with hallucination checks and source grounding. Improved retrieval reliability by 24%
-                    using HuggingFace TGI + Dask + LangFuse.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">Agentic LLM</span>
-                    <span class="chip">LangChain</span>
-                    <span class="chip">TGI</span>
-                    <span class="chip">Dask</span>
-                </div>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-title">Scientific Research Analyzer</div>
+            <div class="project-body">
+                Agentic LLM workflow for reading research papers, retrieving context, summarizing, and verifying citations, with hallucination checks and source grounding. Improved retrieval reliability by 24% using HuggingFace TGI + Dask + LangFuse.
             </div>
-
-            <div class="project-card">
-                <div class="project-title">Smart Shopping Assistant</div>
-                <div class="project-body">
-                    Multimodal LLM pipeline combining OCR and RAG to extract structured data from grocery receipts,
-                    with LLM consistency and validation checks to keep outputs grounded in the source.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">RAG</span>
-                    <span class="chip">OCR</span>
-                    <span class="chip">LLM Validation</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">Movie Recommendation System</div>
-                <div class="project-body">
-                    Hybrid ALS + Autoencoder recommender on 15M+ interactions from MovieLens-25M and Netflix Prize,
-                    with PySpark feature engineering and A/B testing. Improved CTR by 12%, watch duration by 15%,
-                    and reduced RMSE by 15%.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">ALS</span>
-                    <span class="chip">Autoencoder</span>
-                    <span class="chip">PySpark</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">Real-Time Credit Card Fraud Detection</div>
-                <div class="project-body">
-                    Kafka + Spark streaming pipeline with Random Forest & XGBoost models for real-time fraud detection,
-                    achieving 95%+ accuracy and &lt;400 ms end-to-end latency.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">Kafka</span>
-                    <span class="chip">Spark Streaming</span>
-                    <span class="chip">XGBoost</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">Abstractive Text Summarization</div>
-                <div class="project-body">
-                    Implemented attention-based Seq2Seq Bi-LSTM and Transformer baselines (BERT, T5) on the
-                    CNN/DailyMail dataset, benchmarking both quality and factual consistency.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">Seq2Seq</span>
-                    <span class="chip">BERT</span>
-                    <span class="chip">T5</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">Myeloma Treatment Response Prediction</div>
-                <div class="project-body">
-                    Multimodal clinical ML for predicting Myeloma treatment outcomes using tabular, imaging,
-                    and flow cytometry data, with biomarker discovery (IBV) and transformer robustness analysis.
-                </div>
-                <div class="chip-row">
-                    <span class="chip">Clinical ML</span>
-                    <span class="chip">Multimodal</span>
-                    <span class="chip">Explainability</span>
-                </div>
+            <div class="chip-row">
+                <span class="chip">Agentic LLM</span>
+                <span class="chip">LangChain</span>
+                <span class="chip">TGI</span>
+                <span class="chip">Dask</span>
+                <span class="chip">RAG</span>
+                <span class="chip">Prompt Engineering</span>
             </div>
         </div>
-    </section>
+
+        <div class="project-card">
+            <div class="project-title">Smart Shopping Assistant</div>
+            <div class="project-body">
+                Multimodal LLM pipeline combining OCR and RAG to extract structured data from grocery receipts, with LLM consistency and validation checks to keep outputs grounded in the source.
+            </div>
+            <div class="chip-row">
+                <span class="chip">RAG</span>
+                <span class="chip">OCR</span>
+                <span class="chip">LLM Validation</span>
+                <span class="chip">Python</span>
+                <span class="chip">Data Extraction</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Movie Recommendation System</div>
+            <div class="project-body">
+                Hybrid ALS + Autoencoder recommender on 15M+ interactions from MovieLens-25M and Netflix Prize datasets, with PySpark feature engineering and A/B testing. Achieved a 12% increase in CTR, 15% increase in watch duration, and 15% reduction in RMSE.
+            </div>
+            <div class="chip-row">
+                <span class="chip">ALS</span>
+                <span class="chip">Autoencoder</span>
+                <span class="chip">PySpark</span>
+                <span class="chip">Recommendation Systems</span>
+                <span class="chip">Feature Engineering</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Real-Time Credit Card Fraud Detection</div>
+            <div class="project-body">
+                Kafka + Spark streaming pipeline using Random Forest & XGBoost for real-time fraud detection, achieving 95%+ accuracy with <400ms end-to-end latency. Implemented feature extraction, streaming preprocessing, and alerting pipelines for fraud monitoring.
+            </div>
+            <div class="chip-row">
+                <span class="chip">Kafka</span>
+                <span class="chip">Spark Streaming</span>
+                <span class="chip">XGBoost</span>
+                <span class="chip">Random Forest</span>
+                <span class="chip">Real-Time Analytics</span>
+                <span class="chip">Feature Engineering</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Abstractive Text Summarization</div>
+            <div class="project-body">
+                Implemented attention-based Seq2Seq Bi-LSTM and Transformer baselines (BERT, T5) on CNN/DailyMail dataset. Benchmarked quality and factual consistency, evaluating ROUGE and BLEU scores, and performed error analysis for hallucination detection.
+            </div>
+            <div class="chip-row">
+                <span class="chip">Seq2Seq</span>
+                <span class="chip">BERT</span>
+                <span class="chip">T5</span>
+                <span class="chip">NLP</span>
+                <span class="chip">Text Summarization</span>
+                <span class="chip">Evaluation Metrics</span>
+            </div>
+        </div>
+
+    
+        <div class="project-card">
+            <div class="project-title">Object Tracking in Video Sequences</div>
+            <div class="project-body">
+                Developed a real-time object tracking system using YOLO for detection and custom tracking pipelines on the MOT5 dataset. Built a full video-processing workflow to track objects across frames, measure trajectories, and visualize results for performance evaluation.
+            </div>
+            <div class="chip-row">
+                <span class="chip">Computer Vision</span>
+                <span class="chip">YOLO</span>
+                <span class="chip">Object Tracking</span>
+                <span class="chip">Video Processing</span>
+                <span class="chip">OpenCV</span>
+                <span class="chip">Python</span>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+
 
     <!-- Publications -->
     <section id="publications">
