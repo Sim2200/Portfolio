@@ -20,7 +20,9 @@
             --shadow-soft: 0 18px 45px rgba(0,0,0,0.4);
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
@@ -30,9 +32,17 @@
             scroll-behavior: smooth;
         }
 
-        a { color: inherit; text-decoration: none; }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-        .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
         /* Navbar */
         .navbar {
@@ -44,13 +54,32 @@
             border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
 
-        .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; max-width: 1120px; margin: 0 auto; }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
 
-        .nav-left { display: flex; flex-direction: column; }
+        .nav-left {
+            display: flex;
+            flex-direction: column;
+        }
 
-        .nav-name { font-weight: 600; letter-spacing: 0.05em; font-size: 14px; text-transform: uppercase; }
+        .nav-name {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
 
-        .nav-links { display: flex; gap: 18px; font-size: 14px; }
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 14px;
+        }
 
         .nav-link {
             color: var(--text-muted);
@@ -59,7 +88,10 @@
             cursor: pointer;
         }
 
-        .nav-link:hover { color: #e5e7eb; }
+        .nav-link:hover {
+            color: #e5e7eb;
+        }
+
         .nav-link::after {
             content: "";
             position: absolute;
@@ -71,23 +103,70 @@
             border-radius: 999px;
             transition: width 0.18s ease-out;
         }
-        .nav-link:hover::after { width: 100%; }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
         /* Hero */
-        .hero { padding: 56px 0 40px; }
+        .hero {
+            padding: 56px 0 40px;
+        }
 
-        .hero-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr); gap: 32px; align-items: center; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 32px;
+            align-items: center;
+        }
 
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.4); font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
 
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #f97316, #ef4444); box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.25); }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #f97316, #ef4444);
+            box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.25);
+        }
 
-        .hero-title { font-size: clamp(32px, 5vw, 44px); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 10px; }
-        .hero-title span { background: linear-gradient(90deg, #6366f1, #ec4899); -webkit-background-clip: text; color: transparent; }
+        .hero-title {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
 
-        .hero-subtitle { font-size: 18px; color: var(--text-muted); max-width: 520px; line-height: 1.6; margin-bottom: 22px; }
+        .hero-title span {
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 520px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
         .btn-primary {
             padding: 10px 18px;
@@ -104,7 +183,9 @@
             box-shadow: 0 14px 40px rgba(79, 70, 229, 0.5);
         }
 
-        .btn-primary span { font-size: 16px; }
+        .btn-primary span {
+            font-size: 16px;
+        }
 
         .btn-ghost {
             padding: 9px 16px;
@@ -119,7 +200,9 @@
             gap: 8px;
         }
 
-        .hero-right { position: relative; }
+        .hero-right {
+            position: relative;
+        }
 
         .hero-card {
             background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.2), rgba(15, 23, 42, 0.98) 40%, #020617);
@@ -129,59 +212,241 @@
             box-shadow: var(--shadow-soft);
         }
 
-        .hero-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
 
-        .hero-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.15em; }
-        .hero-pill { font-size: 11px; padding: 4px 10px; border-radius: 999px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.5); }
-        .hero-card-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-        .hero-card-text { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+        .hero-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
 
-        .hero-metrics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-        .metric-pill { font-size: 11px; padding: 4px 9px; border-radius: 999px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.6); color: #e5e7eb; }
+        .hero-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }
+
+        .hero-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .hero-card-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .hero-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .metric-pill {
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            color: #e5e7eb;
+        }
 
         /* Sections */
-        section { padding: 40px 0; }
-        .section-title { font-size: 24px; margin-bottom: 8px; letter-spacing: -0.02em; }
-        .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 22px; }
+        section {
+            padding: 40px 0;
+        }
 
-        .section-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr); gap: 28px; align-items: flex-start; }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
 
-        .card { background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), #020617); border-radius: var(--radius-md); border: 1px solid rgba(148, 163, 184, 0.35); padding: 18px 18px 16px; }
-        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-        .card-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-        .card-body { font-size: 13px; color: #e5e7eb; line-height: 1.6; }
-        .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-        .chip { font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.4); color: var(--text-muted); }
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-        .skill-cat-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-        .skill-list { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .section-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+            gap: 28px;
+            align-items: flex-start;
+        }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
-        .project-card { background: rgba(15, 23, 42, 0.95); border-radius: var(--radius-md); padding: 16px 16px 14px; border: 1px solid rgba(148, 163, 184, 0.4); box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7); transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out; }
-        .project-card:hover { transform: translateY(-4px); border-color: rgba(129, 140, 248, 0.9); box-shadow: 0 18px 40px rgba(79, 70, 229, 0.45); }
-        .project-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-        .project-body { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+        .card {
+            background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), #020617);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 18px 18px 16px;
+        }
 
-        .pub-item { margin-bottom: 10px; font-size: 13px; color: var(--text-muted); }
-        .pub-title { color: #e5e7eb; font-weight: 500; }
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .contact-box { background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), #020617); border-radius: var(--radius-md); padding: 18px; border: 1px solid rgba(148, 163, 184, 0.45); }
-        .contact-row { font-size: 14px; margin-bottom: 6px; }
-        .contact-label { color: var(--text-muted); }
-        .contact-value a { color: #e5e7eb; }
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
 
-        footer { padding: 18px 0 28px; font-size: 12px; color: var(--text-muted); text-align: center; }
+        .card-body {
+            font-size: 13px;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
 
-        @media (max-width: 850px) { .hero-grid, .section-grid { grid-template-columns: minmax(0, 1fr); } }
-        @media (max-width: 640px) { .nav-inner { flex-direction: column; align-items: flex-start; gap: 6px; } .nav-links { font-size: 13px; gap: 12px; } .hero { padding-top: 32px; } }
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .chip {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-cat-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .skill-list {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: var(--radius-md);
+            padding: 16px 16px 14px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(129, 140, 248, 0.9);
+            box-shadow: 0 18px 40px rgba(79, 70, 229, 0.45);
+        }
+
+        .project-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .pub-item {
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .pub-title {
+            color: #e5e7eb;
+            font-weight: 500;
+        }
+
+        .contact-box {
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), #020617);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+        }
+
+        .contact-row {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+        }
+
+        .contact-value a {
+            color: #e5e7eb;
+        }
+
+        footer {
+            padding: 18px 0 28px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 850px) {
+            .hero-grid,
+            .section-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .nav-links {
+                font-size: 13px;
+                gap: 12px;
+            }
+            .hero {
+                padding-top: 32px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+<!-- Navbar -->
 <div class="navbar">
     <div class="nav-inner">
-        <div class="nav-left"><div class="nav-name">Simran Kharbanda</div></div>
+        <div class="nav-left">
+            <div class="nav-name">Simran Kharbanda</div>
+        </div>
         <nav class="nav-links">
             <a href="#about" class="nav-link">About</a>
             <a href="#experience" class="nav-link">Experience</a>
@@ -202,16 +467,25 @@
                     <div class="dot"></div>
                     <span>Actively seeking Summer 2026 internships</span>
                 </div>
-                <h1 class="hero-title">Building <span>reliable ML systems</span> end to end.</h1>
+
+                <h1 class="hero-title">
+                    Building <span>reliable ML systems</span> end to end.
+                </h1>
+
                 <p class="hero-subtitle">
                     I’m a graduate student in Applied Machine Learning at the University of Maryland,
                     working on large-scale ML, LLM-powered systems, and reliability. Previously, I’ve
                     worked at EY, Flipkart, Akzo Nobel, Hero MotoCorp, Cisco, and as a research assistant
                     at MIT Manipal.
                 </p>
+
                 <div class="hero-actions">
-                    <a class="btn-primary" href="#" target="_blank" rel="noreferrer">View Resume <span>↗</span></a>
-                    <a class="btn-ghost" href="mailto:simrank3574@gmail.com">Email me</a>
+                    <a class="btn-primary" href="#" target="_blank" rel="noreferrer">
+                        View Resume <span>↗</span>
+                    </a>
+                    <a class="btn-ghost" href="mailto:simrank3574@gmail.com">
+                        Email me
+                    </a>
                 </div>
             </div>
 
@@ -268,19 +542,30 @@
                 <div class="skills-grid">
                     <div class="card">
                         <div class="skill-cat-title">Languages</div>
-                        <div class="skill-list">Python, R, C++, JavaScript, SQL</div>
+                        <div class="skill-list">
+                            Python, R, C++, JavaScript, SQL, Go
+                        </div>
                     </div>
                     <div class="card">
-                        <div class="skill-cat-title">Frameworks & Tools</div>
-                        <div class="skill-list">TensorFlow, PyTorch, PySpark, Scikit-learn, Hugging Face, LangChain, Hadoop, Airflow, MLflow, Pandas, NumPy, Docker, Power BI</div>
+                        <div class="skill-cat-title">ML & DL</div>
+                        <div class="skill-list">
+                            PyTorch, TensorFlow, Scikit-learn, LightGBM, XGBoost, Random Forests,
+                            CNNs, Seq2Seq, Transformers
+                        </div>
                     </div>
                     <div class="card">
-                        <div class="skill-cat-title">Cloud & DB</div>
-                        <div class="skill-list">Kafka, AWS, Kubernetes, PostgreSQL, MongoDB, Spark</div>
+                        <div class="skill-cat-title">LLMs & GenAI</div>
+                        <div class="skill-list">
+                            Flan-T5, Mistral-7B, RAG, LoRA fine-tuning, agentic workflows,
+                            factuality & hallucination detection, SHAP, model failure analysis
+                        </div>
                     </div>
                     <div class="card">
-                        <div class="skill-cat-title">Core Skills</div>
-                        <div class="skill-list">Machine Learning, Deep Learning, NLP, Generative AI, Agentic AI, LLMs, Data Engineering, Time Series Forecasting, Model Optimization, Causal Inference, Recommender Systems, Statistical Modeling, Predictive Modeling, A/B Testing</div>
+                        <div class="skill-cat-title">Data & Infra</div>
+                        <div class="skill-list">
+                            PySpark, Kafka, Airflow, MLflow, FastAPI, Docker, PostgreSQL, Grafana,
+                            AWS, Kubernetes
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,40 +580,79 @@
         <div class="section-grid">
             <div>
                 <div class="card">
-                    <div class="card-title">Intern · Akzo Nobel</div>
-                    <div class="card-meta">2024 · Analytics</div>
+                    <div class="card-title">Research Assistant · MIT Manipal</div>
+                    <div class="card-meta">Jan 2024 – Jun 2025 · Myeloma treatment prediction</div>
                     <div class="card-body">
-                        Built anomaly detection dashboards using Isolation Forest & ARIMA, reducing production defects by 12%.
+                        Built transformer (TabTransformer, ClinicalBERT) and CNN pipelines (ResNet-18, 3D U-Net)
+                        for multimodal clinical data (BTD, FCM, PET/CT, bone marrow) to predict treatment response
+                        in Myeloma patients. Used SHAP to identify IBV as a novel biomarker, improving AUC by 12%.
+                        Developed robustness tests (stress, counterfactual, OOD) to study transformer failure modes
+                        and interpretability.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">PyTorch</span>
+                        <span class="chip">Transformers</span>
+                        <span class="chip">SHAP</span>
+                        <span class="chip">Spark</span>
+                        <span class="chip">MLflow</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Generative AI Intern · Ernst & Young</div>
+                    <div class="card-meta">Jun 2024 – Aug 2024 · RAG & LLM Systems</div>
+                    <div class="card-body">
+                        Built and deployed an enterprise RAG chatbot using Flan-T5 and Mistral-7B to automate
+                        analytics over 10K+ corporate Excel files, with &lt;400 ms latency and 99.3% retrieval precision.
+                        Performed LoRA fine-tuning on Flan-T5, optimized embeddings and prompt templates via
+                        400+ A/B tests, and designed factuality evaluation tests to detect hallucinations and
+                        improve grounded responses.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">Flan-T5</span>
+                        <span class="chip">Mistral-7B</span>
+                        <span class="chip">LangChain</span>
+                        <span class="chip">FAISS</span>
+                        <span class="chip">LoRA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <div class="card-title">Data Intern · Flipkart</div>
+                    <div class="card-meta">Feb 2025 – Jun 2025 · Recsys & Forecasting</div>
+                    <div class="card-body">
+                        Analyzed 120M+ e-commerce events with PySpark + SQL to improve recommendation CTR by 14%
+                        and reduce churn by 11%. Built LightGBM and Prophet models (MAE &lt; 5%) for inventory
+                        forecasting across 12 warehouses, deployed FastAPI services with 20–40 ms latency,
+                        and automated Airflow pipelines. Implemented feature-drift and model-health monitoring
+                        in Grafana to keep models stable in production.
+                    </div>
+                    <div class="chip-row">
+                        <span class="chip">PySpark</span>
+                        <span class="chip">LightGBM</span>
+                        <span class="chip">Prophet</span>
+                        <span class="chip">FastAPI</span>
+                        <span class="chip">Airflow</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Internships · Akzo Nobel · Hero MotoCorp · Cisco</div>
+                    <div class="card-meta">2024 · Analytics, Forecasting, Cybersecurity</div>
+                    <div class="card-body">
+                        At Akzo Nobel, built anomaly detection dashboards using Isolation Forest & ARIMA,
+                        reducing production defects by 12%. At Hero MotoCorp, modeled 5M+ sales records with
+                        Random Forest & Prophet, improving forecasting MAE by 18%. At Cisco, engineered Python-based
+                        intrusion detection (Snort + TF-IDF) pipelines achieving a 93% F1-score and 28% fewer
+                        false alerts.
                     </div>
                     <div class="chip-row">
                         <span class="chip">Isolation Forest</span>
                         <span class="chip">ARIMA</span>
-                        <span class="chip">Analytics</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">Intern · Hero MotoCorp</div>
-                    <div class="card-meta">2024 · Forecasting</div>
-                    <div class="card-body">
-                        Modeled 5M+ sales records with Random Forest & Prophet, improving forecasting MAE by 18%.
-                    </div>
-                    <div class="chip-row">
                         <span class="chip">Random Forest</span>
-                        <span class="chip">Prophet</span>
-                        <span class="chip">Forecasting</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">Intern · Cisco</div>
-                    <div class="card-meta">2024 · Cybersecurity</div>
-                    <div class="card-body">
-                        Engineered Python-based intrusion detection (Snort + TF-IDF) pipelines achieving a 93% F1-score and 28% fewer false alerts.
-                    </div>
-                    <div class="chip-row">
                         <span class="chip">Snort</span>
-                        <span class="chip">TF-IDF</span>
                         <span class="chip">Security Analytics</span>
                     </div>
                 </div>
@@ -338,28 +662,88 @@
 
     <!-- Projects -->
     <section id="projects">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title">Highlighted Projects</h2>
+        <p class="section-subtitle">A sample of projects focused on LLMs, reliability, RL, and large-scale ML.</p>
+
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-title">LLM-powered Data QA Assistant</div>
+                <div class="project-title">Scientific Research Analyzer</div>
                 <div class="project-body">
-                    Built a Q&A assistant for structured datasets using LangChain + Instructor-XL embeddings to automate Excel analysis at EY.
+                    Agentic LLM workflow for reading research papers, retrieving context, summarizing, and verifying
+                    citations, with hallucination checks and source grounding. Improved retrieval reliability by 24%
+                    using HuggingFace TGI + Dask + LangFuse.
                 </div>
                 <div class="chip-row">
-                    <span class="chip">Python</span>
+                    <span class="chip">Agentic LLM</span>
                     <span class="chip">LangChain</span>
-                    <span class="chip">LLMs</span>
+                    <span class="chip">TGI</span>
+                    <span class="chip">Dask</span>
                 </div>
             </div>
+
             <div class="project-card">
-                <div class="project-title">Smart Home Interface (Qt)</div>
+                <div class="project-title">Smart Shopping Assistant</div>
                 <div class="project-body">
-                    Developed GUI and QML components to control home devices with real-time status updates.
+                    Multimodal LLM pipeline combining OCR and RAG to extract structured data from grocery receipts,
+                    with LLM consistency and validation checks to keep outputs grounded in the source.
                 </div>
                 <div class="chip-row">
-                    <span class="chip">Qt</span>
-                    <span class="chip">C++</span>
-                    <span class="chip">QML</span>
+                    <span class="chip">RAG</span>
+                    <span class="chip">OCR</span>
+                    <span class="chip">LLM Validation</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Movie Recommendation System</div>
+                <div class="project-body">
+                    Hybrid ALS + Autoencoder recommender on 15M+ interactions from MovieLens-25M and Netflix Prize,
+                    with PySpark feature engineering and A/B testing. Improved CTR by 12%, watch duration by 15%,
+                    and reduced RMSE by 15%.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">ALS</span>
+                    <span class="chip">Autoencoder</span>
+                    <span class="chip">PySpark</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Real-Time Credit Card Fraud Detection</div>
+                <div class="project-body">
+                    Kafka + Spark streaming pipeline with Random Forest & XGBoost models for real-time fraud detection,
+                    achieving 95%+ accuracy and &lt;400 ms end-to-end latency.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Kafka</span>
+                    <span class="chip">Spark Streaming</span>
+                    <span class="chip">XGBoost</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Abstractive Text Summarization</div>
+                <div class="project-body">
+                    Implemented attention-based Seq2Seq Bi-LSTM and Transformer baselines (BERT, T5) on the
+                    CNN/DailyMail dataset, benchmarking both quality and factual consistency.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Seq2Seq</span>
+                    <span class="chip">BERT</span>
+                    <span class="chip">T5</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Myeloma Treatment Response Prediction</div>
+                <div class="project-body">
+                    Multimodal clinical ML for predicting Myeloma treatment outcomes using tabular, imaging,
+                    and flow cytometry data, with biomarker discovery (IBV) and transformer robustness analysis.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Clinical ML</span>
+                    <span class="chip">Multimodal</span>
+                    <span class="chip">Explainability</span>
                 </div>
             </div>
         </div>
@@ -368,11 +752,33 @@
     <!-- Publications -->
     <section id="publications">
         <h2 class="section-title">Publications</h2>
-        <div class="pub-item">
-            <span class="pub-title">Impact of Social Media Influencers on Stock Market Trends and Product Sales</span>, 2024
-        </div>
-        <div class="pub-item">
-            <span class="pub-title">Predicting Treatment Response for Myeloma Patients via AI Techniques</span>, in collaboration with Kasturba Medical College, 2024
+        <p class="section-subtitle">Selected academic work and ongoing research.</p>
+        <div class="section-grid">
+            <div>
+                <div class="card">
+                    <div class="card-title">Impact of Social Media Influencers on Stock Market Trends and Product Sales</div>
+                    <div class="card-meta">Global Finance Journal (Taylor &amp; Francis)</div>
+                    <div class="card-body">
+                        Co-authored a peer-reviewed study analyzing 395 Indian IPOs (2014–2025) to quantify the effect
+                        of financial influencers on IPO pricing and investor behavior. Using VADER, TextBlob, and BERT-based
+                        sentiment and engagement analysis, we showed that Finfluencer endorsements are associated with a
+                        7.2% increase in traditional underpricing, 6.8% higher initial returns (p &lt; 0.05), and 10.9x higher
+                        retail investor demand (p &lt; 0.01).
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <div class="card-title">Ongoing Work</div>
+                    <div class="card-body">
+                        <div class="pub-item">
+                            <span class="pub-title">Multimodal ML for Myeloma Treatment Response (Under Review)</span><br/>
+                            Joint work with MIT Manipal & KMC collaborators exploring transformers and CNNs for integrating
+                            imaging and clinical data, biomarker discovery (IBV), and robust model evaluation.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -389,16 +795,6 @@
                 </span>
             </div>
             <div class="contact-row">
-                <span class="contact-label">UMD Email: </span>
-                <span class="contact-value">
-                    <a href="mailto:simrank@umd.edu">simrank@umd.edu</a>
-                </span>
-            </div>
-            <div class="contact-row">
-                <span class="contact-label">Phone: </span>
-                <span class="contact-value">+1 240-726-9285</span>
-            </div>
-            <div class="contact-row">
                 <span class="contact-label">LinkedIn: </span>
                 <span class="contact-value">
                     <a href="https://www.linkedin.com/in/simran-kharbanda" target="_blank" rel="noreferrer">
@@ -409,16 +805,18 @@
             <div class="contact-row">
                 <span class="contact-label">GitHub: </span>
                 <span class="contact-value">
-                    <a href="https://github.com/Sim2200" target="_blank" rel="noreferrer">github.com/Sim2200</a>
+                    <a href="https://github.com/Sim2200" target="_blank" rel="noreferrer">
+                        github.com/Sim2200
+                    </a>
                 </span>
             </div>
         </div>
     </section>
-
-    <footer>
-        &copy; 2025 Simran Kharbanda. All rights reserved.
-    </footer>
-
 </div>
+
+<footer>
+    © 2025 Simran Kharbanda · Built with HTML & CSS · Hosted on GitHub Pages
+</footer>
+
 </body>
 </html>
