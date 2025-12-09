@@ -572,117 +572,119 @@
         </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">Research and industry roles where I’ve applied ML and LLMs in practice.</p>
+<!-- Experience -->
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Research and industry roles where I’ve applied ML, LLMs, analytics, and data engineering in practice.</p>
 
-        <div class="section-grid">
-            <div>
-                <div class="card">
-                    <div class="card-title">Research Assistant · MIT Manipal</div>
-                    <div class="card-meta">Jan 2024 – Jun 2025 · Myeloma treatment prediction</div>
-                    <div class="card-body">
-                        Built transformer (TabTransformer, ClinicalBERT) and CNN pipelines (ResNet-18, 3D U-Net)
-                        for multimodal clinical data (BTD, FCM, PET/CT, bone marrow) to predict treatment response
-                        in Myeloma patients. Used SHAP to identify IBV as a novel biomarker, improving AUC by 12%.
-                        Developed robustness tests (stress, counterfactual, OOD) to study transformer failure modes
-                        and interpretability.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">PyTorch</span>
-                        <span class="chip">Transformers</span>
-                        <span class="chip">SHAP</span>
-                        <span class="chip">Spark</span>
-                        <span class="chip">MLflow</span>
-                    </div>
+    <div class="section-grid">
+        <div>
+            <div class="card">
+                <div class="card-title">Research Assistant · MIT Manipal</div>
+                <div class="card-meta">Jan 2024 – Jun 2025 · Myeloma Treatment Prediction</div>
+                <div class="card-body">
+                    Designed and implemented multimodal ML pipelines using TabTransformer, ClinicalBERT, and CNNs (ResNet-18, 3D U-Net) to predict treatment response in Myeloma patients. Applied SHAP to discover IBV as a novel biomarker, improving prediction AUC by 12%. Conducted extensive robustness tests—including stress, counterfactual, and out-of-distribution evaluations—to analyze transformer failure modes and interpretability. Collaborated with clinical researchers to validate model insights and integrate findings into ongoing studies.
                 </div>
-
-                <div class="card">
-                    <div class="card-title">Generative AI Intern · Ernst & Young</div>
-                    <div class="card-meta">Jun 2024 – Aug 2024 · RAG & LLM Systems</div>
-                    <div class="card-body">
-                        Built and deployed an enterprise RAG chatbot using Flan-T5 and Mistral-7B to automate
-                        analytics over 10K+ corporate Excel files, with &lt;400 ms latency and 99.3% retrieval precision.
-                        Performed LoRA fine-tuning on Flan-T5, optimized embeddings and prompt templates via
-                        400+ A/B tests, and designed factuality evaluation tests to detect hallucinations and
-                        improve grounded responses.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">Flan-T5</span>
-                        <span class="chip">Mistral-7B</span>
-                        <span class="chip">LangChain</span>
-                        <span class="chip">FAISS</span>
-                        <span class="chip">LoRA</span>
-                    </div>
+                <div class="chip-row">
+                    <span class="chip">PyTorch</span>
+                    <span class="chip">Transformers</span>
+                    <span class="chip">CNNs</span>
+                    <span class="chip">SHAP</span>
+                    <span class="chip">Spark</span>
+                    <span class="chip">MLflow</span>
+                    <span class="chip">Clinical ML</span>
+                    <span class="chip">Biomarker Discovery</span>
                 </div>
             </div>
 
-            <div>
-                <div class="card">
-                    <div class="card-title">Data Intern · Flipkart</div>
-                    <div class="card-meta">Feb 2025 – Jun 2025 · Recsys & Forecasting</div>
-                    <div class="card-body">
-                        Analyzed 120M+ e-commerce events with PySpark + SQL to improve recommendation CTR by 14%
-                        and reduce churn by 11%. Built LightGBM and Prophet models (MAE &lt; 5%) for inventory
-                        forecasting across 12 warehouses, deployed FastAPI services with 20–40 ms latency,
-                        and automated Airflow pipelines. Implemented feature-drift and model-health monitoring
-                        in Grafana to keep models stable in production.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">PySpark</span>
-                        <span class="chip">LightGBM</span>
-                        <span class="chip">Prophet</span>
-                        <span class="chip">FastAPI</span>
-                        <span class="chip">Airflow</span>
-                    </div>
+            <div class="card">
+                <div class="card-title">Generative AI Intern · Ernst & Young</div>
+                <div class="card-meta">Jun 2024 – Aug 2024 · RAG & LLM Systems</div>
+                <div class="card-body">
+                    Built and deployed a Retrieval-Augmented Generation (RAG) chatbot using Flan-T5 and Mistral-7B over 10K+ corporate Excel files, achieving <400ms latency and 99.3% retrieval precision. Performed LoRA fine-tuning and optimized embeddings and prompts via 400+ A/B tests. Designed a pipeline for factuality evaluation to reduce hallucinations and improve the groundedness of responses. Integrated the solution into corporate workflows, enabling analysts to quickly query and summarize large datasets.
                 </div>
-
-                
-            <div>
-                <div class="card">
-                    <div class="card-title">Data Science Intern · Hero MotoCorp</div>
-                    <div class="card-meta">May 2024 · Analytics</div>
-                    <div class="card-body">
-                        Built anomaly detection dashboards using Isolation Forest & ARIMA, reducing production defects by 12%.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">Isolation Forest</span>
-                        <span class="chip">ARIMA</span>
-                        <span class="chip">Analytics</span>
-                    </div>
-                </div>
-
-            <div>
-                <div class="card">
-                    <div class="card-title">IT Intern · Akzo Nobel</div>
-                    <div class="card-meta">June 2024 · Forecasting</div>
-                    <div class="card-body">
-                        Modeled 5M+ sales records with Random Forest & Prophet, improving forecasting MAE by 18%.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">Random Forest</span>
-                        <span class="chip">Prophet</span>
-                        <span class="chip">Forecasting</span>
-                    </div>
-                </div>
-
-              
-                <div class="card">
-                    <div class="card-title">Cybersecurity Intern · Cisco</div>
-                    <div class="card-meta">May 2024 · Analytics</div>
-                    <div class="card-body">
-                        Engineered Python-based intrusion detection (Snort + TF-IDF) pipelines achieving a 93% F1-score and 28% fewer false alerts.
-                    </div>
-                    <div class="chip-row">
-                        <span class="chip">Snort</span>
-                        <span class="chip">TF-IDF</span>
-                            <span class="chip">Security Analytics</span>
-                    </div>
+                <div class="chip-row">
+                    <span class="chip">Flan-T5</span>
+                    <span class="chip">Mistral-7B</span>
+                    <span class="chip">LangChain</span>
+                    <span class="chip">FAISS</span>
+                    <span class="chip">LoRA</span>
+                    <span class="chip">RAG</span>
+                    <span class="chip">Prompt Engineering</span>
+                    <span class="chip">Chatbot Deployment</span>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div>
+            <div class="card">
+                <div class="card-title">Data Intern · Flipkart</div>
+                <div class="card-meta">Feb 2025 – Jun 2025 · Recsys & Forecasting</div>
+                <div class="card-body">
+                    Analyzed 120M+ e-commerce events with PySpark and SQL, improving recommendation CTR by 14% and reducing churn by 11%. Built LightGBM and Prophet models (MAE <5%) for inventory forecasting across 12 warehouses. Deployed FastAPI services for low-latency predictions and automated pipelines with Airflow. Implemented monitoring for feature drift, model health, and performance metrics using Grafana, ensuring stable production operations.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">PySpark</span>
+                    <span class="chip">LightGBM</span>
+                    <span class="chip">Prophet</span>
+                    <span class="chip">FastAPI</span>
+                    <span class="chip">Airflow</span>
+                    <span class="chip">SQL</span>
+                    <span class="chip">Model Monitoring</span>
+                    <span class="chip">Data Engineering</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Data Science Intern · Hero MotoCorp</div>
+                <div class="card-meta">May 2024 · Analytics</div>
+                <div class="card-body">
+                    Designed and implemented anomaly detection dashboards using Isolation Forest and ARIMA to monitor production lines, reducing defect rates by 12%. Analyzed historical production data to identify recurring patterns and outliers. Automated reporting pipelines for real-time alerting, enabling production teams to proactively address quality issues.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Isolation Forest</span>
+                    <span class="chip">ARIMA</span>
+                    <span class="chip">Dashboarding</span>
+                    <span class="chip">Data Visualization</span>
+                    <span class="chip">Analytics</span>
+                    <span class="chip">Python</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">IT Intern · Akzo Nobel</div>
+                <div class="card-meta">Jun 2024 · Forecasting</div>
+                <div class="card-body">
+                    Processed and modeled 5M+ historical sales records using Random Forest and Prophet to improve demand forecasting accuracy by 18%. Developed end-to-end forecasting pipelines, including data cleaning, feature engineering, model training, and deployment. Presented insights to business teams to optimize inventory planning and reduce stockouts.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Random Forest</span>
+                    <span class="chip">Prophet</span>
+                    <span class="chip">Forecasting</span>
+                    <span class="chip">Data Engineering</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">Business Analytics</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Cybersecurity Intern · Cisco</div>
+                <div class="card-meta">May 2024 · Security Analytics</div>
+                <div class="card-body">
+                    Developed Python-based intrusion detection pipelines using Snort and TF-IDF, achieving 93% F1-score and reducing false alerts by 28%. Conducted exploratory data analysis on network logs and implemented feature extraction for efficient anomaly detection. Collaborated with security teams to integrate models into production monitoring dashboards.
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Snort</span>
+                    <span class="chip">TF-IDF</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">Intrusion Detection</span>
+                    <span class="chip">Security Analytics</span>
+                    <span class="chip">Network Logs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Projects -->
     <section id="projects">
