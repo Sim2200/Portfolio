@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Simran Kharbanda — Resume</title>
+<!--
+  Source for docs/resume.pdf. To rebuild after editing:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+    --no-pdf-header-footer --print-to-pdf=docs/resume.pdf resume-src/resume.html
+-->
+<style>
+    @page { size: Letter; margin: 0.4in 0.5in; }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: Charter, "Bitstream Charter", Georgia, serif;
+        font-size: 9.7pt;
+        line-height: 1.22;
+        color: #111;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header { text-align: center; margin-bottom: 6pt; }
+
+    h1 {
+        font-size: 21pt;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin: 0 0 2pt;
+    }
+
+    .contact { font-size: 9.5pt; }
+    .contact span + span::before { content: "  |  "; white-space: pre; color: #666; }
+
+    h2 {
+        font-size: 10.5pt;
+        font-variant: small-caps;
+        letter-spacing: 0.06em;
+        font-weight: 700;
+        border-bottom: 0.8pt solid #111;
+        margin: 6pt 0 3pt;
+        padding-bottom: 1pt;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12pt;
+    }
+
+    .entry { margin-bottom: 3pt; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .title { font-weight: 700; }
+    .sub { font-style: italic; }
+    .date { white-space: nowrap; }
+
+    ul {
+        margin: 1.5pt 0 0;
+        padding-left: 13pt;
+    }
+
+    li { margin-bottom: 0.5pt; }
+
+    .skills p { margin: 0 0 1pt; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Simran Kharbanda</h1>
+    <div class="contact">
+        <span><a href="mailto:simrank3574@gmail.com">simrank3574@gmail.com</a></span>
+        <span><a href="https://www.linkedin.com/in/simran-kharbanda">linkedin.com/in/simran-kharbanda</a></span>
+        <span><a href="https://github.com/Sim2200">github.com/Sim2200</a></span>
+        <span><a href="https://sim2200.github.io/Portfolio/">sim2200.github.io/Portfolio</a></span>
+    </div>
+</header>
+
+<h2>Education</h2>
+<div class="entry row">
+    <div><span class="title">University of Maryland</span>, College Park — <span class="sub">M.S. Applied Machine Learning</span></div>
+    <div class="date">Aug 2025 – Present</div>
+</div>
+<div class="entry row">
+    <div><span class="title">Manipal Institute of Technology</span> — <span class="sub">B.Tech Electronics &amp; Communication, Minor in Data Science</span></div>
+    <div class="date">Oct 2021 – May 2025</div>
+</div>
+
+<h2>Experience</h2>
+
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Observe.AI</span> — <span class="sub">Forward Deployed Engineer</span></div>
+        <div class="date">May 2026 – Present</div>
+    </div>
+    <ul>
+        <li>Build and deploy voice agents with Vapi, n8n, and OpenAI APIs for claims support and customer service: prompt workflows, tool calling, authentication, and real-time claim status retrieval via REST APIs and webhooks.</li>
+        <li>Technical owner of a Companion AI agent build for a major enterprise client (New Hire and Tenured configurations) from development through go-live, including n8n workflows with custom JavaScript nodes for post-call nudges.</li>
+        <li>Diagnose production issues across multi-agent systems (LLM reliability failures, telephony latency, data sync, fallback logic, session state) and built reusable evaluation and logging workflows for conversation quality.</li>
+        <li>Write ClickHouse SQL for Superset dashboards on agent behavior and nudge effectiveness; authored migration docs for a platform-wide agent architecture overhaul across six live configurations.</li>
+    </ul>
+</div>
+
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Flipkart</span> — <span class="sub">Data Intern</span>, Bangalore</div>
+        <div class="date">Feb 2025 – Jun 2025</div>
+    </div>
+    <ul>
+        <li>Built end-to-end ML pipelines (PySpark, SQL, Pandas) over 120M+ e-commerce transactions, improving recommendation CTR by 14%.</li>
+        <li>Developed LightGBM and Prophet demand-forecasting models (MAE &lt; 5%) to optimize inventory across 12 warehouses.</li>
+        <li>Deployed Dockerized FastAPI inference services (20–40 ms latency in staging); automated workflows with Airflow and PostgreSQL, cutting manual analytics by 90% and runtime by 60%.</li>
+    </ul>
+</div>
+
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Manipal Institute of Technology</span> — <span class="sub">Research Assistant</span></div>
+        <div class="date">Jan 2024 – May 2025</div>
+    </div>
+    <ul>
+        <li>Designed TabTransformer, ClinicalBERT, ResNet-18, and 3D U-Net models to predict myeloma treatment response from multimodal clinical data (BTD, FCM, PET/CT, bone marrow).</li>
+        <li>Identified IBV as a novel biomarker through SHAP attribution, improving AUC by 12%; accelerated GPU training with CUDA, PyTorch, Spark, and MLflow.</li>
+    </ul>
+</div>
+
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Ernst &amp; Young</span> — <span class="sub">Generative AI Intern</span>, Noida</div>
+        <div class="date">Jun 2024 – Aug 2024</div>
+    </div>
+    <ul>
+        <li>Designed a RAG chatbot with Flan-T5 and Mistral-7B for Excel workflow automation over 10K+ corporate files.</li>
+        <li>Engineered hybrid retrieval with LangChain and FAISS (&lt;400 ms latency, 99.3% precision); A/B tested 400+ prompts and embedding setups, improving query accuracy by 25%.</li>
+    </ul>
+</div>
+
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Earlier internships</span></div>
+        <div class="date">Apr 2024 – Jul 2024</div>
+    </div>
+    <ul>
+        <li><b>Cisco</b> (AICTE Cybersecurity): intrusion detection pipelines with Snort and TF-IDF, 93% F1 and 28% fewer false alerts. <b>Akzo Nobel</b> (IT): Isolation Forest/ARIMA anomaly detection, 12% fewer defects. <b>Hero MotoCorp</b> (Data Science): Random Forest/Prophet sales forecasting on 5M+ records, 18% better MAE.</li>
+    </ul>
+</div>
+
+<h2>Publication</h2>
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Digital Sentiment and the Retail Crowd: How Finfluencers Shape IPO Valuations</span></div>
+        <div class="date">2025</div>
+    </div>
+    <ul>
+        <li>Co-author, <i>Journal of Behavioral Finance</i> (Taylor &amp; Francis). Sentiment modeling (VADER, TextBlob, BERT) across 395 Indian IPOs; endorsements linked to 7.2% more underpricing, 6.8% higher initial returns (p &lt; 0.05), and 10.9× retail demand (p &lt; 0.01).</li>
+    </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+    <div class="row">
+        <div><span class="title">SLA-Aware Multi-Variant ML Serving Platform</span> | <span class="sub">Docker, Kubernetes, MLflow, AWS</span></div>
+        <div class="date">2025</div>
+    </div>
+    <ul>
+        <li>Built a serving platform that routes requests across model variants based on latency, throughput, and resource constraints, with Kubernetes orchestration and MLflow versioning to compare variants under varying workloads.</li>
+    </ul>
+</div>
+<div class="entry">
+    <div class="row">
+        <div><span class="title">Scientific Research Analyzer</span> | <span class="sub">LangChain, Hugging Face TGI, Dask, LangFuse</span></div>
+        <div class="date">2024</div>
+    </div>
+    <ul>
+        <li>Built multi-agent workflows for scientific literature synthesis with LangChain Graphs; tuned coordination with TGI, Dask, and LangFuse, improving retrieval performance by 24%.</li>
+    </ul>
+</div>
+<h2>Technical Skills</h2>
+<div class="skills">
+    <p><b>LLMs &amp; Agents:</b> OpenAI APIs, LangChain, Hugging Face, TGI, RAG, FAISS, Vapi, n8n, LangFuse, LLM evaluation</p>
+    <p><b>ML:</b> PyTorch, TensorFlow, scikit-learn, LightGBM, XGBoost, Prophet, SHAP</p>
+    <p><b>Data &amp; Infra:</b> PySpark, Airflow, Kafka, MLflow, Docker, Kubernetes, FastAPI, AWS, PostgreSQL, ClickHouse, MongoDB</p>
+    <p><b>Languages:</b> Python, SQL, C++, R, JavaScript, Go</p>
+</div>
+
+</body>
+</html>
