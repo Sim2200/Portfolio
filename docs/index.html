@@ -488,6 +488,21 @@
             padding-top: 28px;
         }
 
+        .group + .group { margin-top: 32px; }
+
+        .group-title {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin: 0 0 10px;
+        }
+
+        .edu-card .group-title { margin-bottom: 12px; }
+        .edu-card .group-title + p ~ p { margin-top: 6px; }
+
         .earlier h3 {
             font-family: var(--mono);
             font-size: 12px;
@@ -525,6 +540,14 @@
         .edu-card .job-title { font-size: 19px; }
         .edu-card p { margin: 0; font-size: 14.5px; }
 
+        .edu-card .edu-courses {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+            font-size: 13.5px;
+            line-height: 1.7;
+        }
+
         /* ---------- Publications ---------- */
         .pub {
             padding: 0 0 28px;
@@ -543,6 +566,14 @@
         }
 
         .pub h3 { font-size: 23px; }
+
+        .pub-link {
+            text-decoration: none;
+            border-bottom: 1px solid var(--line);
+            transition: border-color .15s, color .15s;
+        }
+
+        .pub-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
         .pub-cite {
             font-size: 15px;
@@ -804,50 +835,50 @@
             <article class="case">
                 <div class="case-num">01</div>
                 <div>
-                    <div class="case-meta">2025 · ML systems</div>
+                    <div class="case-meta">Spring 2026 · ML systems · MSML605</div>
                     <h3>SLA-Aware Multi-Variant ML Serving Platform</h3>
                     <p class="case-summary">
-                        A serving platform that runs several variants of a model side by side and
-                        routes each request to the variant that can meet its latency, throughput, and
-                        resource constraints.
+                        A serving platform on AWS EKS that sends each request to either a high-accuracy
+                        model or a quantized ONNX model. When load threatens the latency SLA, traffic
+                        shifts to the fast model.
                     </p>
 
-                    <div class="flow" role="img" aria-label="Request with SLA goes to an SLA-aware router, which picks a model variant running on Kubernetes; MLflow tracks versions and performance">
+                    <div class="flow" role="img" aria-label="Requests go to an SLA-aware router that watches p95 latency, CPU, error rate and in-flight requests, and sends traffic to either a high-accuracy model or a quantized ONNX model, both FastAPI services on AWS EKS">
                         <div class="flow-step">
                             <div class="flow-label">Input</div>
-                            <div class="flow-box">Inference request + SLA target</div>
+                            <div class="flow-box">Image classification requests (Locust load tests)</div>
                         </div>
                         <div class="flow-step">
                             <div class="flow-label">Route</div>
-                            <div class="flow-box hl">SLA-aware router: latency, throughput, resources</div>
+                            <div class="flow-box hl">SLA-aware router: p95 latency, CPU, error rate, in-flight requests</div>
                         </div>
                         <div class="flow-step">
                             <div class="flow-label">Serve</div>
-                            <div class="flow-box">Model variants A · B · C in Docker on Kubernetes</div>
+                            <div class="flow-box">A: high-accuracy model · B: quantized ONNX model (FastAPI)</div>
                         </div>
                         <div class="flow-step">
-                            <div class="flow-label">Track</div>
-                            <div class="flow-box">MLflow versioning and experiment tracking</div>
+                            <div class="flow-label">Operate</div>
+                            <div class="flow-box">AWS EKS autoscaling, Prometheus/Grafana, canary rollouts</div>
                         </div>
                     </div>
 
                     <div class="case-grid">
                         <div>
                             <h4>Problem</h4>
-                            <p>A single model version can't meet every SLA. Faster variants give up accuracy, and bigger ones need more resources.</p>
+                            <p>Under heavy load, a single high-accuracy model blew past its latency budget: p95 went over 30 s and 5–10% of requests failed.</p>
                         </div>
                         <div>
                             <h4>What I built</h4>
-                            <p>Containerized inference services orchestrated with Kubernetes, plus a routing layer that picks a variant for each request based on its constraints.</p>
+                            <p>Both model variants, the ONNX quantization, the FastAPI inference services, the SLA-aware routing logic, and the Locust load tests and performance analysis.</p>
                         </div>
                         <div>
-                            <h4>Evaluation</h4>
-                            <p>Used MLflow to version variants and compare how each performed under different workloads.</p>
+                            <h4>Result</h4>
+                            <p><span class="stat">30+ s → 5 s</span>p95 latency under high load, with errors down from 5–10% to 0–2%.</p>
                         </div>
                     </div>
 
                     <ul class="chips">
-                        <li>Python</li><li>Docker</li><li>Kubernetes</li><li>MLflow</li><li>AWS</li>
+                        <li>Python</li><li>FastAPI</li><li>ONNX</li><li>Kubernetes</li><li>AWS EKS</li><li>Locust</li>
                     </ul>
                 </div>
             </article>
@@ -856,7 +887,7 @@
             <article class="case">
                 <div class="case-num">02</div>
                 <div>
-                    <div class="case-meta">2024 · Agentic LLMs</div>
+                    <div class="case-meta">2025 · Agentic LLMs</div>
                     <h3>Scientific Research Analyzer</h3>
                     <p class="case-summary">
                         A multi-agent LLM workflow that reads research papers, retrieves supporting
@@ -965,19 +996,21 @@
             </div>
 
             <article class="job">
-                <div class="job-when"><span>May 2026 – Present</span></div>
+                <div class="job-when"><span>May 2026 – Present</span><span>Redwood City, CA</span></div>
                 <div>
                     <h3 class="job-title">Forward Deployed Engineer · <span class="org">Observe.AI</span></h3>
-                    <p class="job-sub">Voice agents &amp; enterprise AI deployments</p>
+                    <p class="job-sub">Real-time agent assist &amp; enterprise AI deployments</p>
                     <ul>
-                        <li>Build and deploy voice agents with Vapi, n8n, and OpenAI APIs for claims support and customer service, covering prompt workflows, tool calling, authentication, and real-time claim status retrieval.</li>
-                        <li>Technical owner of a Companion AI agent build for a major enterprise client, managing the New Hire and Tenured configurations from development through go-live. This includes n8n workflows with custom JavaScript nodes for post-call nudges.</li>
-                        <li>Diagnose production issues across multi-agent systems: LLM reliability failures, data sync inconsistencies, telephony latency, and gaps in fallback logic and session state.</li>
-                        <li>Built reusable evaluation, logging, and testing assets for conversation quality, and ClickHouse SQL behind Superset dashboards on agent behavior and nudge effectiveness.</li>
-                        <li>Wrote the migration documentation for a platform-wide agent architecture overhaul across six live configurations, which surfaced capabilities that were duplicated across them.</li>
+                        <li>Led technical delivery of a real-time agent-assist pilot for a US regional bank. The 3-tier (EN/EN/ES) architecture covered 5 customer journeys, 8 dynamic checklists, and 31 nudges over Cisco PCCE/SIPREC telephony, taken from scoping to a live customer demo.</li>
+                        <li>Co-led migration of a US healthcare contact center to the Companion Agent platform across New Hire and Tenured personas (Genesys SIP integration), passing a 45-case clean regression before UAT.</li>
+                        <li>Built a Python LLM-as-judge regression harness (Typer, Pydantic, Azure OpenAI) over 400+ eval rules, lifting the simulation pass rate from 77.9% to 95.8% across five journeys.</li>
+                        <li>Caught an end-call summary agent fabricating "booked" outcomes on 12 of 25 calls before it reached the customer's CRM. Also replaced a stochastic LLM do-not-call nudge (9/9 production false positives) with a deterministic n8n phrase-match gate.</li>
+                        <li>Traced a silent failure across several releases to 16 unregistered nudge tools. One config fix took two compliance nudges from 0% to 100% firing.</li>
+                        <li>Designed a Snowflake secure-share pipeline (n8n batch MERGE, ~15 min cadence) delivering call summaries to a large US fintech.</li>
+                        <li>Built an agentic developer toolkit (16 Claude Code subagents, 31 skills, MCP integrations) now used by the delivery pod, and onboard new AI Agent Engineers through weekly build reviews for a pod of 5.</li>
                     </ul>
                     <ul class="chips">
-                        <li>Vapi</li><li>n8n</li><li>OpenAI</li><li>JavaScript</li><li>ClickHouse</li><li>Superset</li>
+                        <li>Python</li><li>n8n</li><li>Azure OpenAI</li><li>Genesys</li><li>Cisco PCCE</li><li>Snowflake</li><li>ClickHouse</li>
                     </ul>
                 </div>
             </article>
@@ -1003,7 +1036,7 @@
                 <div class="job-when"><span>Jan 2024 – May 2025</span><span>Manipal</span></div>
                 <div>
                     <h3 class="job-title">Research Assistant · <span class="org">MIT Manipal</span></h3>
-                    <p class="job-sub">Multimodal clinical ML</p>
+                    <p class="job-sub">Clinical AI Lab · multimodal clinical ML</p>
                     <ul>
                         <li>Built transformer and CNN models to predict myeloma treatment response from multimodal clinical data. SHAP analysis identified IBV as a novel biomarker (+12% AUC). <a href="#work" class="text-link">See case study</a></li>
                     </ul>
@@ -1045,14 +1078,16 @@
 
             <div class="edu">
                 <div class="edu-card">
-                    <div class="job-when" style="padding:0 0 6px">Aug 2025 – Present</div>
+                    <div class="job-when" style="padding:0 0 6px">Aug 2025 – May 2027 (expected)</div>
                     <h3 class="job-title">University of Maryland</h3>
                     <p class="muted">M.S. Applied Machine Learning · College Park, MD</p>
+                    <p class="edu-courses">Deep Learning · Reinforcement Learning · Advanced Machine Learning · Computing Systems for ML · Algorithms &amp; Data Structures for ML · Introduction to Optimization · Principles of Machine Learning · Principles of Data Science · Probability &amp; Statistics</p>
                 </div>
                 <div class="edu-card">
                     <div class="job-when" style="padding:0 0 6px">Oct 2021 – May 2025</div>
                     <h3 class="job-title">Manipal Institute of Technology</h3>
                     <p class="muted">B.Tech Electronics &amp; Communication, Minor in Data Science</p>
+                    <p class="edu-courses">Data Structures &amp; Algorithms · Object-Oriented Programming (C++) · Computer Vision · Statistical Inference &amp; Regression · Practical Machine Learning · Database Systems · Computer Organization &amp; Architecture · Communication Networks</p>
                 </div>
             </div>
         </div>
@@ -1066,8 +1101,8 @@
             </div>
 
             <article class="pub">
-                <div class="pub-status">Published · 2025</div>
-                <h3>Digital Sentiment and the Retail Crowd: How Finfluencers Shape IPO Valuations</h3>
+                <div class="pub-status">Published · Vol. 27(2), 2026 · online Oct 2025</div>
+                <h3><a href="https://doi.org/10.1080/15427560.2025.2566736" target="_blank" rel="noopener" class="pub-link">Digital Sentiment and the Retail Crowd: How Finfluencers Shape IPO Valuations ↗</a></h3>
                 <p class="pub-cite">
                     Kavitha Bharath Raja Guru, Krishna Prasad, Sandhya Parasnath Dubey,
                     <strong>Simran Kharbanda</strong>. <i>Journal of Behavioral Finance</i>, Taylor &amp; Francis.
@@ -1102,41 +1137,49 @@
             <ul class="proj-list">
                 <li class="proj">
                     <div class="proj-year">2026</div>
-                    <div class="proj-name">Agentic Voice Assistant for Workflow Automation</div>
+                    <div class="proj-name">Agentic Voice Assistant for Insurance Claims</div>
                     <div>
-                        <p class="proj-desc">Voice agent that collects structured inputs and runs multi-step tasks through n8n workflows, with RAG grounding and stateful tool routing.</p>
-                        <div class="proj-stack">Vapi · n8n · LLMs · RAG · STT/TTS</div>
+                        <p class="proj-desc">Vapi + n8n voice agent that authenticates callers, retrieves real-time claim status, and logs every call through Google Sheets webhooks, routing callers by claim outcome with stateful tool calls.</p>
+                        <div class="proj-stack">Vapi · n8n · OpenAI APIs · REST · STT/TTS</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://grocery-knapsack-project-x2g9sc7htbngsam8fhqqhd.streamlit.app/" target="_blank" rel="noopener">Nutrition-Optimized Grocery Basket ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Frames grocery shopping as a 0/1 knapsack problem (price = weight, nutrition = value) solved with dynamic programming on Open Food Facts data. Live Streamlit app; <a class="text-link" href="https://github.com/Sim2200/grocery-knapsack-project" target="_blank" rel="noopener">code</a>.</p>
+                        <div class="proj-stack">Python · Dynamic programming · Pandas · Streamlit</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/HW3-Extra-Credit-Project" target="_blank" rel="noopener">Spotify Artist Search with Hashing ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Hash-table indexes over a 1.2M-song Spotify dataset for fast artist, song, and album lookup, with a Streamlit search UI.</p>
+                        <div class="proj-stack">Python · Hashing · Streamlit</div>
                     </div>
                 </li>
                 <li class="proj">
                     <div class="proj-year">2025</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/grocery-knapsack-project" target="_blank" rel="noopener">Grocery Shopping Optimizer ↗</a></div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/Final-Project-DATA602" target="_blank" rel="noopener">High-Risk Diet Prediction ↗</a></div>
                     <div>
-                        <p class="proj-desc">Frames grocery planning as a knapsack problem solved with dynamic programming, balancing cost, preferences, and budget against baseline strategies.</p>
-                        <div class="proj-stack">Python · Dynamic programming · Optimization</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2025</div>
-                    <div class="proj-name">High-Risk Diet Prediction</div>
-                    <div>
-                        <p class="proj-desc">End-to-end classification pipeline predicting high-risk dietary patterns from health and lifestyle data, with error analysis.</p>
-                        <div class="proj-stack">scikit-learn · LightGBM · Pandas</div>
+                        <p class="proj-desc">End-to-end pipeline on FAOSTAT food-balance data (12 countries, 2016–2023): feature engineering, Random Forest / Logistic Regression / XGBoost comparison with stratified CV, and SHAP analysis.</p>
+                        <div class="proj-stack">Pandas · scikit-learn · XGBoost · SHAP</div>
                     </div>
                 </li>
                 <li class="proj">
                     <div class="proj-year">2024</div>
-                    <div class="proj-name">RL for Warehouse Inventory Optimization</div>
+                    <div class="proj-name">RL for Warehouse Optimization</div>
                     <div>
-                        <p class="proj-desc">Multi-agent DQN and PPO policies for inventory placement, order picking, and restocking in a simulated warehouse.</p>
-                        <div class="proj-stack">DQN · PPO · Multi-agent RL</div>
+                        <p class="proj-desc">Custom single- and multi-agent warehouse environments with DQN, PPO, and MAPPO policies for placement, picking, and restocking. Reward shaping cut path inefficiency by 18%.</p>
+                        <div class="proj-stack">DQN · PPO · MAPPO · Multi-agent RL</div>
                     </div>
                 </li>
                 <li class="proj">
                     <div class="proj-year">2024</div>
                     <div class="proj-name">Real-Time Credit Card Fraud Detection</div>
                     <div>
-                        <p class="proj-desc">Kafka + Spark streaming pipeline with Random Forest and XGBoost: 95%+ accuracy, sub-400 ms inference.</p>
+                        <p class="proj-desc">Kafka + Spark streaming pipeline with Random Forest and XGBoost: 95%+ accuracy at sub-400 ms inference.</p>
                         <div class="proj-stack">Kafka · Spark · XGBoost</div>
                     </div>
                 </li>
@@ -1144,7 +1187,7 @@
                     <div class="proj-year">2024</div>
                     <div class="proj-name">Multi-Object Tracking in Video</div>
                     <div>
-                        <p class="proj-desc">YOLOv5 detection with Kalman filtering and Hungarian matching, evaluated on MOTA, MOTP, and IDF1.</p>
+                        <p class="proj-desc">YOLOv5 detection with Kalman filtering and Hungarian matching, reaching 82% MOTA and 76% IDF1 on the MOT dataset.</p>
                         <div class="proj-stack">YOLOv5 · Kalman filter · OpenCV</div>
                     </div>
                 </li>
@@ -1152,8 +1195,16 @@
                     <div class="proj-year">2024</div>
                     <div class="proj-name">Movie Recommendation System</div>
                     <div>
-                        <p class="proj-desc">Hybrid ALS + autoencoder recommender on 15M+ interactions: +12% CTR, +15% watch time, −15% RMSE.</p>
+                        <p class="proj-desc">Hybrid ALS + autoencoder recommender on 15M+ interactions: +12% CTR, +15% watch time, −15% RMSE with Bayesian tuning.</p>
                         <div class="proj-stack">ALS · Autoencoders · PySpark</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2024</div>
+                    <div class="proj-name">Customer Segmentation &amp; Recommendations</div>
+                    <div>
+                        <p class="proj-desc">K-means customer segmentation plus a collaborative-filtering recommender for online retail, boosting sales by 20% through personalized suggestions.</p>
+                        <div class="proj-stack">scikit-learn · K-means · Collaborative filtering</div>
                     </div>
                 </li>
                 <li class="proj">
@@ -1184,6 +1235,72 @@
         </div>
     </section>
 
+    <!-- Leadership & volunteering -->
+    <section class="section" id="leadership">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Leadership &amp; volunteering</h2>
+            </div>
+
+            <div class="group">
+                <h3 class="group-title">Leadership</h3>
+                <div class="earlier-row">
+                    <div class="job-when"><span>Aug 2023 – Sep 2024</span></div>
+                    <div><strong>Head of Logistics</strong> · Leaders of Tomorrow, MIT Manipal. <span class="muted">Managed 40+ members and coordinated large-scale university events.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>Mar 2023</span></div>
+                    <div><strong>Head of Organizing Committee</strong> · Revels cultural festival, MIT Manipal. <span class="muted">Led 90+ members and streamlined resources and event planning.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>Oct 2022</span></div>
+                    <div><strong>Head of Organizing Committee</strong> · TechTatva technical festival, MIT Manipal.</div>
+                </div>
+            </div>
+
+            <div class="group">
+                <h3 class="group-title">Volunteering</h3>
+                <div class="earlier-row">
+                    <div class="job-when"><span>UMD</span></div>
+                    <div><strong>Volunteer Tutor</strong> · Maryland Mentor Corps. <span class="muted">Math education and tutoring.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>UMD</span></div>
+                    <div><strong>Volunteer</strong> · Terps for Change, Kids Achieve Club. <span class="muted">Youth development and community outreach.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>UMD</span></div>
+                    <div><strong>Member</strong> · Active Minds. <span class="muted">Mental health awareness and campus engagement.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>Sep 2024</span></div>
+                    <div><strong>Volunteer</strong> · Suvidha NGO. <span class="muted">Fundraising for underprivileged children.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>Nov 2023 – Jan 2024</span></div>
+                    <div><strong>Volunteer</strong> · Kerala State AIDS Control Society. <span class="muted">Organized HIV/AIDS prevention and awareness programs.</span></div>
+                </div>
+                <div class="earlier-row">
+                    <div class="job-when"><span>May – Jul 2022</span></div>
+                    <div><strong>Volunteer Teacher</strong> · PARIVAR Society. <span class="muted">Taught mathematics and led self-help groups for the elderly.</span></div>
+                </div>
+            </div>
+
+            <div class="edu">
+                <div class="edu-card">
+                    <h3 class="group-title">Certifications</h3>
+                    <p>Deep Learning Specialization <span class="muted">· DeepLearning.AI, Aug 2024</span></p>
+                    <p>Data Science Professional Certificate <span class="muted">· IBM, Nov 2024</span></p>
+                    <p>Data Science Specialization <span class="muted">· Johns Hopkins University, Nov 2024</span></p>
+                </div>
+                <div class="edu-card">
+                    <h3 class="group-title">Awards</h3>
+                    <p>4th place, Cisco Forecast League <span class="muted">· Feb 2024</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills -->
     <section class="section" id="skills">
         <div class="wrap">
@@ -1193,21 +1310,38 @@
             <div class="skills">
                 <div>
                     <h3>LLMs &amp; agents</h3>
-                    <p>OpenAI APIs, LangChain, Hugging Face, TGI, RAG, FAISS, Vapi, n8n, LangFuse</p>
+                    <p>RAG, LLM evaluation (LLM-as-judge), prompt engineering, fine-tuning, LangChain, FAISS, OpenAI / Azure OpenAI, Claude Code (subagents, skills, MCP), Vapi, n8n, Hugging Face TGI, LangFuse</p>
                 </div>
                 <div>
                     <h3>Machine learning</h3>
-                    <p>PyTorch, TensorFlow, scikit-learn, LightGBM, XGBoost, Prophet, SHAP</p>
+                    <p>PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet, SHAP, OpenCV, spaCy, NLTK, ONNX</p>
                 </div>
                 <div>
-                    <h3>Data &amp; infra</h3>
-                    <p>PySpark, Airflow, Kafka, MLflow, Docker, Kubernetes, FastAPI, AWS</p>
+                    <h3>MLOps &amp; backend</h3>
+                    <p>FastAPI, Flask, Docker, Kubernetes, AWS, Airflow, MLflow, Kafka, PySpark, REST APIs, webhooks, Pydantic, Git, Linux</p>
                 </div>
                 <div>
-                    <h3>Languages &amp; DBs</h3>
-                    <p>Python, SQL, C++, R, JavaScript, Go · PostgreSQL, ClickHouse, MongoDB</p>
+                    <h3>Data &amp; analytics</h3>
+                    <p>PostgreSQL, MySQL, MongoDB, Snowflake, ClickHouse, Metabase, Superset, Grafana, Power BI</p>
+                </div>
+                <div>
+                    <h3>Enterprise integrations</h3>
+                    <p>Genesys, Cisco PCCE / SIPREC, Salesforce, SSO / SCIM</p>
+                </div>
+                <div>
+                    <h3>Languages</h3>
+                    <p>Python, SQL, JavaScript, C++, R, Go, MATLAB, Bash</p>
+                </div>
+                <div>
+                    <h3>Methods</h3>
+                    <p>Deep learning, NLP, reinforcement learning, time-series forecasting, causal inference, survival analysis, A/B testing, recommender systems</p>
+                </div>
+                <div>
+                    <h3>Security &amp; hardware</h3>
+                    <p>Kali Linux, Nessus, Wireshark, Nmap · Qt/QML, Simulink, HFSS</p>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
