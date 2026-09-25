@@ -1139,8 +1139,16 @@
                     <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/grocery-price-optimizer" target="_blank" rel="noopener">Grocery Price Optimizer ↗</a></div>
                     <div>
-                        <p class="proj-desc">Full-stack app that turns receipt photos into a per-store price database (LLM vision extraction with structured outputs, human review, rules + fuzzy product matching, unit-price normalization), then solves a MILP to pick which stores to visit, trading item prices against trip costs. Beats single-store and per-item greedy baselines in benchmarks; 123 tests.</p>
-                        <div class="proj-stack">Python · FastAPI · PuLP (MILP) · SQLite · React · TypeScript</div>
+                        <p class="proj-desc">Full-stack app that turns receipt photos into a per-store price database (LLM vision extraction with structured outputs, human review, rules + fuzzy product matching, unit-price normalization), then solves a MILP to pick which stores to visit, trading item prices against trip costs. Beats single-store and per-item greedy baselines in benchmarks. Also has price-drop alerts, spending insights and a recipe-to-list assistant built on LLM tool calling. Shipped with Docker, GitHub Actions CI, a Helm chart, plan-only Terraform (EKS, RDS, ElastiCache), OpenTelemetry tracing, Prometheus metrics and JSON logs; 158 tests.</p>
+                        <div class="proj-stack">Python · FastAPI · SQLAlchemy · PuLP (MILP) · React · TypeScript · Docker · Helm · Terraform · OpenTelemetry</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/sla-inference-gateway" target="_blank" rel="noopener">Adaptive Inference Gateway ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Solo rebuild of the SLA-aware serving idea (case study 01) as a gateway that routes between a ResNet-50 int8 tier and a MobileNetV3 tier by live p95 latency, with adaptive concurrency limits, circuit breakers, staged canary rollouts with automatic rollback, and shadow traffic. Evaluated 8 ONNX variants on 9,500 ImageNetV2 images (int8 ResNet-50: p50 latency down 33% for a 1.3-point top-1 drop) and benchmarked Core ML on-device: int8 weights made ResNet-50 4x smaller with no top-1 loss, and the Mac GPU ran it 7x faster than the CPU. Load experiments in progress.</p>
+                        <div class="proj-stack">Python · FastAPI · ONNX Runtime · Core ML · Kubernetes (HPA) · Prometheus · Grafana</div>
                     </div>
                 </li>
                 <li class="proj">
