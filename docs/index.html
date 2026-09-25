@@ -828,12 +828,64 @@
         <div class="wrap">
             <div class="section-head">
                 <h2>Selected work</h2>
-                <span class="section-note">3 case studies</span>
+                <span class="section-note">4 case studies</span>
             </div>
 
-            <!-- 01 SLA serving -->
+            <!-- 01 SLA inference gateway -->
             <article class="case">
                 <div class="case-num">01</div>
+                <div>
+                    <div class="case-meta">2026 · ML systems · <a href="https://github.com/Sim2200/sla-inference-gateway" target="_blank" rel="noopener" class="text-link">github.com/Sim2200/sla-inference-gateway ↗</a></div>
+                    <h3>SLA-Aware Inference Gateway</h3>
+                    <p class="case-summary">
+                        A gateway that keeps image-classification latency inside a 300 ms SLA by routing each
+                        request between an accurate ResNet-50 (int8 ONNX) and a fast MobileNetV3, based on
+                        live p95 latency. Built from scratch and measured end to end under load.
+                    </p>
+
+                    <div class="flow" role="img" aria-label="Open-loop load generator sends real ImageNetV2 images to the gateway, whose SLA controller, adaptive concurrency limit, circuit breakers and canary rollout pick the accurate or fast model tier; Prometheus, Grafana and Jaeger observe it; Kubernetes HPA scales the tiers">
+                        <div class="flow-step">
+                            <div class="flow-label">Load</div>
+                            <div class="flow-box">Open-loop Poisson traffic of real ImageNetV2 images, accuracy measured per answer</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-label">Route</div>
+                            <div class="flow-box hl">SLA controller on rolling p95 · adaptive concurrency limit · circuit breakers · deadline propagation</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-label">Serve</div>
+                            <div class="flow-box">accurate: ResNet-50 v2 int8 (68.8%) · fast: MobileNetV3 fp32 (60.6%), ONNX Runtime on 2 CPUs each</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-label">Operate</div>
+                            <div class="flow-box">Canary 10→50→100% with auto-rollback · shadow traffic · Prometheus/Grafana/Jaeger · Kubernetes HPA</div>
+                        </div>
+                    </div>
+
+                    <div class="case-grid">
+                        <div>
+                            <h4>Problem</h4>
+                            <p>At twice its capacity a single accurate model collapses: p95 latency of 2.7 s, 27% of requests failing, and 0.4% answered within the SLA. Always using the small model avoids that at a permanent 8-point accuracy cost.</p>
+                        </div>
+                        <div>
+                            <h4>What I built</h4>
+                            <p>The whole system: ONNX export and int8 quantization of 8 candidate models evaluated on 9,500 held-out images, the model servers, the gateway and its control loop, canary rollouts, an open-loop load generator, Docker Compose and kind/HPA deployments, and the benchmark suite (34 tests).</p>
+                        </div>
+                        <div>
+                            <h4>Result</h4>
+                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×.</p>
+                        </div>
+                    </div>
+
+                    <ul class="chips">
+                        <li>Python</li><li>FastAPI</li><li>ONNX Runtime</li><li>int8 quantization</li><li>Kubernetes</li><li>Prometheus</li><li>OpenTelemetry</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 02 SLA serving -->
+            <article class="case">
+                <div class="case-num">02</div>
                 <div>
                     <div class="case-meta">Spring 2026 · ML systems · MSML605</div>
                     <h3>SLA-Aware Multi-Variant ML Serving Platform</h3>
@@ -883,9 +935,9 @@
                 </div>
             </article>
 
-            <!-- 02 Research analyzer -->
+            <!-- 03 Research analyzer -->
             <article class="case">
-                <div class="case-num">02</div>
+                <div class="case-num">03</div>
                 <div>
                     <div class="case-meta">2025 · Agentic LLMs</div>
                     <h3>Scientific Research Analyzer</h3>
@@ -934,9 +986,9 @@
                 </div>
             </article>
 
-            <!-- 03 Myeloma -->
+            <!-- 04 Myeloma -->
             <article class="case">
-                <div class="case-num">03</div>
+                <div class="case-num">04</div>
                 <div>
                     <div class="case-meta">2024–2025 · Research, MIT Manipal</div>
                     <h3>Multimodal ML for Myeloma Treatment Response</h3>
@@ -1142,14 +1194,6 @@
                     <div>
                         <p class="proj-desc">Full-stack app that turns receipt photos into a per-store price database (LLM vision extraction with structured outputs, human review, rules + fuzzy product matching, unit-price normalization), then solves a MILP to pick which stores to visit, trading item prices against trip costs. Beats single-store and per-item greedy baselines in benchmarks. Also has price-drop alerts, spending insights and a recipe-to-list assistant built on LLM tool calling. Shipped with Docker, GitHub Actions CI, a Helm chart, plan-only Terraform (EKS, RDS, ElastiCache), OpenTelemetry tracing, Prometheus metrics and JSON logs; 158 tests.</p>
                         <div class="proj-stack">Python · FastAPI · SQLAlchemy · PuLP (MILP) · React · TypeScript · Docker · Helm · Terraform · OpenTelemetry</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/sla-inference-gateway" target="_blank" rel="noopener">Adaptive Inference Gateway ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Rebuild of the SLA-aware serving idea (case study 01) as a gateway that routes between a ResNet-50 int8 tier and a MobileNetV3 tier by live p95 latency, with adaptive concurrency limits, circuit breakers, staged canary rollouts with automatic rollback, and shadow traffic. Evaluated 8 ONNX variants on 9,500 ImageNetV2 images (int8 ResNet-50: p50 latency down 33% for a 1.3-point top-1 drop) and benchmarked Core ML on-device: int8 weights made ResNet-50 4x smaller with no top-1 loss, and the Mac GPU ran it 7x faster than the CPU. Load experiments in progress.</p>
-                        <div class="proj-stack">Python · FastAPI · ONNX Runtime · Core ML · Kubernetes (HPA) · Prometheus · Grafana</div>
                     </div>
                 </li>
                 <li class="proj">
