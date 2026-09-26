@@ -828,7 +828,7 @@
         <div class="wrap">
             <div class="section-head">
                 <h2>Selected work</h2>
-                <span class="section-note">4 case studies</span>
+                <span class="section-note">3 case studies</span>
             </div>
 
             <!-- 01 SLA inference gateway -->
@@ -883,61 +883,9 @@
                 </div>
             </article>
 
-            <!-- 02 SLA serving -->
+            <!-- 02 Research analyzer -->
             <article class="case">
                 <div class="case-num">02</div>
-                <div>
-                    <div class="case-meta">Spring 2026 · ML systems · MSML605</div>
-                    <h3>SLA-Aware Multi-Variant ML Serving Platform</h3>
-                    <p class="case-summary">
-                        A serving platform on AWS EKS that sends each request to either a high-accuracy
-                        model or a quantized ONNX model. When load threatens the latency SLA, traffic
-                        shifts to the fast model.
-                    </p>
-
-                    <div class="flow" role="img" aria-label="Requests go to an SLA-aware router that watches p95 latency, CPU, error rate and in-flight requests, and sends traffic to either a high-accuracy model or a quantized ONNX model, both FastAPI services on AWS EKS">
-                        <div class="flow-step">
-                            <div class="flow-label">Input</div>
-                            <div class="flow-box">Image classification requests (Locust load tests)</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="flow-label">Route</div>
-                            <div class="flow-box hl">SLA-aware router: p95 latency, CPU, error rate, in-flight requests</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="flow-label">Serve</div>
-                            <div class="flow-box">A: high-accuracy model · B: quantized ONNX model (FastAPI)</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="flow-label">Operate</div>
-                            <div class="flow-box">AWS EKS autoscaling, Prometheus/Grafana, canary rollouts</div>
-                        </div>
-                    </div>
-
-                    <div class="case-grid">
-                        <div>
-                            <h4>Problem</h4>
-                            <p>Under heavy load, a single high-accuracy model blew past its latency budget: p95 went over 30 s and 5–10% of requests failed.</p>
-                        </div>
-                        <div>
-                            <h4>What I built</h4>
-                            <p>Both model variants, the ONNX quantization, the FastAPI inference services, the SLA-aware routing logic, and the Locust load tests and performance analysis.</p>
-                        </div>
-                        <div>
-                            <h4>Result</h4>
-                            <p><span class="stat">30+ s → 5 s</span>p95 latency under high load, with errors down from 5–10% to 0–2%.</p>
-                        </div>
-                    </div>
-
-                    <ul class="chips">
-                        <li>Python</li><li>FastAPI</li><li>ONNX</li><li>Kubernetes</li><li>AWS EKS</li><li>Locust</li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- 03 Research analyzer -->
-            <article class="case">
-                <div class="case-num">03</div>
                 <div>
                     <div class="case-meta">2025 · Agentic LLMs</div>
                     <h3>Scientific Research Analyzer</h3>
@@ -986,9 +934,9 @@
                 </div>
             </article>
 
-            <!-- 04 Myeloma -->
+            <!-- 03 Myeloma -->
             <article class="case">
-                <div class="case-num">04</div>
+                <div class="case-num">03</div>
                 <div>
                     <div class="case-meta">2024–2025 · Research, MIT Manipal</div>
                     <h3>Multimodal ML for Myeloma Treatment Response</h3>
@@ -1188,6 +1136,14 @@
             </div>
 
             <ul class="proj-list">
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name">SLA-Aware Multi-Variant ML Serving Platform (MSML605, team of 2)</div>
+                    <div>
+                        <p class="proj-desc">Course project that the Inference Gateway (case study 01) grew out of: a serving platform on Kubernetes (AWS EKS) with a high-accuracy and a fast model variant, an SLA-aware router, HPA autoscaling, Prometheus/Grafana and canary rollouts. My part: both model variants and the ONNX quantization, the FastAPI inference services, the routing logic, and the Locust load tests and performance analysis. Under high load, p95 fell from 30+ s to 5 s and errors from 5–10% to 0–2%.</p>
+                        <div class="proj-stack">Python · FastAPI · ONNX · Kubernetes · AWS EKS · Locust</div>
+                    </div>
+                </li>
                 <li class="proj">
                     <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/grocery-price-optimizer" target="_blank" rel="noopener">Grocery Price Optimizer ↗</a></div>
