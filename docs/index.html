@@ -1138,14 +1138,6 @@
             <ul class="proj-list">
                 <li class="proj">
                     <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/retail-analytics-warehouse" target="_blank" rel="noopener">Retail Analytics Warehouse ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Dimensional warehouse on DuckDB built with dbt: a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. Synthetic data, every number from a real run.</p>
-                        <div class="proj-stack">dbt · DuckDB · SQL · Kafka · Flink (PyFlink) · Docker · GitHub Actions · Python</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/sla-aware-ml-serving-platform" target="_blank" rel="noopener">SLA-Aware Multi-Variant ML Serving Platform ↗</a></div>
                     <div>
                         <p class="proj-desc">A model-serving platform on Kubernetes (AWS EKS) with a high-accuracy and a fast model variant and an SLA-aware router that shifts traffic to the fast model when the latency SLA is at risk, plus HPA autoscaling, Prometheus/Grafana monitoring and canary rollouts. Under high load, p95 latency fell from 30+ s to 5 s and errors from 5–10% to 0–2%. The Inference Gateway (case study 01) is a from-scratch rebuild of this idea with reproducible measurements.</p>
@@ -1158,6 +1150,14 @@
                     <div>
                         <p class="proj-desc">Full-stack app that turns receipt photos into a per-store price database (LLM vision extraction with structured outputs, human review, rules + fuzzy product matching, unit-price normalization), then solves a MILP to pick which stores to visit, trading item prices against trip costs. Beats single-store and per-item greedy baselines in benchmarks. Also has price-drop alerts, spending insights and a recipe-to-list assistant built on LLM tool calling. Shipped with Docker, GitHub Actions CI, a Helm chart, plan-only Terraform (EKS, RDS, ElastiCache), OpenTelemetry tracing, Prometheus metrics and JSON logs; 158 tests.</p>
                         <div class="proj-stack">Python · FastAPI · SQLAlchemy · PuLP (MILP) · React / Next.js · TypeScript · Docker · Helm · Terraform · OpenTelemetry</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/retail-analytics-warehouse" target="_blank" rel="noopener">Retail Analytics Warehouse ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Dimensional warehouse on DuckDB built with dbt: a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. Synthetic data, every number from a real run.</p>
+                        <div class="proj-stack">dbt · DuckDB · SQL · Kafka · Flink (PyFlink) · Docker · GitHub Actions · Python</div>
                     </div>
                 </li>
                 <li class="proj">
