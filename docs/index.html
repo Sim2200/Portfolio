@@ -873,7 +873,7 @@
                         </div>
                         <div>
                             <h4>Result</h4>
-                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×. On GKE, a 6-minute 4× spike stayed 99.8% within SLA while the HPA and cluster autoscaler added pods and a node in 81 s.</p>
+                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×. On GKE, a 6-minute 4× spike stayed 99.8% within SLA while the HPA and cluster autoscaler added pods and a node in 81 s. Measured energy per inference with powermetrics: ONNX Runtime int8 ResNet-50 at 0.79 J vs 3.75 J for Core ML fp32 on the same CPU, and 0.15 J for the fast tier's MobileNetV3.</p>
                         </div>
                     </div>
 
@@ -1164,8 +1164,8 @@
                     <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/realtime-fraud-detection" target="_blank" rel="noopener">Real-Time Fraud Detection ↗</a></div>
                     <div>
-                        <p class="proj-desc">Fraud detection on 284,807 real card transactions (0.17% fraud) with a strict time-based split. XGBoost, Random Forest, LightGBM and logistic regression across three imbalance strategies; unsupervised Isolation Forest and autoencoder detectors; K-means fraud segments (one holds 44% of frauds at 16.6x the base rate); isotonic calibration with a cost-based threshold that cuts expected loss from $2,633 to $646 per 10,000 transactions; SHAP; 5-seed stability. Differentially private training (DP-SGD) with a measured privacy/utility curve; ONNX, int8 and Core ML export at p95 0.04 ms per transaction; Kafka to Spark Structured Streaming scoring at 2,000 events/s that reproduces the batch alerts exactly; PSI drift monitoring.</p>
-                        <div class="proj-stack">Python · XGBoost · PyTorch · Opacus · ONNX Runtime · Core ML · Kafka · Spark · Docker · GitHub Actions</div>
+                        <p class="proj-desc">Fraud detection on 284,807 real card transactions (0.17% fraud) with a strict time-based split. XGBoost, Random Forest, LightGBM and logistic regression across three imbalance strategies; unsupervised Isolation Forest and autoencoder detectors; K-means fraud segments (one holds 44% of frauds at 16.6x the base rate); isotonic calibration with a cost-based threshold that cuts expected loss from $2,633 to $646 per 10,000 transactions; SHAP; 5-seed stability. Differentially private training (DP-SGD) with a measured privacy/utility curve; ONNX, int8 and Core ML export at p95 0.04 ms per transaction; Kafka to Spark Structured Streaming scoring at 2,000 events/s that reproduces the batch alerts exactly; PSI drift monitoring. The whole lifecycle also runs as a Vertex AI Pipeline (validate, train, evaluate with a promotion gate, Model Registry, endpoint, batch prediction, weekly schedule): one measured run at test PR-AUC 0.80, endpoint p50 68 ms, about $0.40.</p>
+                        <div class="proj-stack">Python · XGBoost · PyTorch · Opacus · ONNX Runtime · Core ML · Kafka · Spark · Vertex AI Pipelines · Docker · GitHub Actions</div>
                     </div>
                 </li>
                 <li class="proj">
