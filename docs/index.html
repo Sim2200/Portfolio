@@ -858,7 +858,7 @@
                         </div>
                         <div class="flow-step">
                             <div class="flow-label">Operate</div>
-                            <div class="flow-box">Canary 10→50→100% with auto-rollback · shadow traffic · Prometheus/Grafana/Jaeger · Kubernetes HPA</div>
+                            <div class="flow-box">Canary 10→50→100% with auto-rollback · shadow traffic · Prometheus/Grafana/Jaeger · Kubernetes HPA + cluster autoscaler (GKE)</div>
                         </div>
                     </div>
 
@@ -869,16 +869,16 @@
                         </div>
                         <div>
                             <h4>What I built</h4>
-                            <p>The whole system: ONNX export and int8 quantization of 8 candidate models evaluated on 9,500 held-out images, the model servers, the gateway and its control loop, canary rollouts, an open-loop load generator, Docker Compose and kind/HPA deployments, and the benchmark suite (34 tests).</p>
+                            <p>The whole system: ONNX export and int8 quantization of 8 candidate models evaluated on 9,500 held-out images, the model servers, the gateway and its control loop, canary rollouts, an open-loop load generator, Docker Compose, kind and GKE deployments, and the benchmark suite (34 tests).</p>
                         </div>
                         <div>
                             <h4>Result</h4>
-                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×.</p>
+                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×. On GKE, a 6-minute 4× spike stayed 99.8% within SLA while the HPA and cluster autoscaler added pods and a node in 81 s.</p>
                         </div>
                     </div>
 
                     <ul class="chips">
-                        <li>Python</li><li>FastAPI</li><li>ONNX Runtime</li><li>int8 quantization</li><li>Kubernetes</li><li>Prometheus</li><li>OpenTelemetry</li>
+                        <li>Python</li><li>FastAPI</li><li>ONNX Runtime</li><li>int8 quantization</li><li>Kubernetes (GKE)</li><li>Prometheus</li><li>OpenTelemetry</li>
                     </ul>
                 </div>
             </article>
