@@ -1156,8 +1156,8 @@
                     <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/retail-analytics-warehouse" target="_blank" rel="noopener">Retail Analytics Warehouse ↗</a></div>
                     <div>
-                        <p class="proj-desc">Dimensional warehouse on DuckDB built with dbt: a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. Synthetic data, every number from a real run.</p>
-                        <div class="proj-stack">dbt · DuckDB · SQL · Kafka · Flink (PyFlink) · Docker · GitHub Actions · Python</div>
+                        <p class="proj-desc">Dimensional warehouse built with dbt that runs unchanged on DuckDB locally and on BigQuery (98 of 98 checks on both, the BigQuery build billing 1.29 GiB at $0.008): a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. Synthetic data, every number from a real run.</p>
+                        <div class="proj-stack">dbt · DuckDB · BigQuery · SQL · Kafka · Flink (PyFlink) · Docker · GitHub Actions · Python</div>
                     </div>
                 </li>
                 <li class="proj">
