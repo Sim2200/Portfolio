@@ -1170,6 +1170,14 @@
                 </li>
                 <li class="proj">
                     <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/rag-eval-service" target="_blank" rel="noopener">RAG Question Answering with an Evaluation Harness ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Retrieval-augmented question answering over 2,067 Wikipedia paragraphs (SQuAD dev) with an evaluation harness that scores answers against gold spans, not just an LLM judge. Compared BM25, dense embeddings (Vertex AI text-embedding-005 in BigQuery vector search) and a hybrid fusion: hybrid retrieves the right paragraph in the top 5 for 94.6% of questions, and Gemini 2.5 Flash reaches EM 0.78 / F1 0.86 with it against 0.09 / 0.14 with no retrieval, at $0.29 per 1,000 questions. Served from FastAPI on Cloud Run; a load test found the async route serialising requests and the fix took throughput from 2.4 to 12 requests/s on one instance. Every number from a real run.</p>
+                        <div class="proj-stack">Python · Vertex AI · Gemini · BigQuery · FastAPI · Cloud Run · rank-bm25 · pytest · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
                     <div class="proj-name">Agentic Voice Assistant for Insurance Claims</div>
                     <div>
                         <p class="proj-desc">Vapi + n8n voice agent that authenticates callers, retrieves real-time claim status, and logs every call through Google Sheets webhooks, routing callers by claim outcome with stateful tool calls.</p>
