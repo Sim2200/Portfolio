@@ -1186,6 +1186,14 @@
                 </li>
                 <li class="proj">
                     <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/wafer-defect-cuda" target="_blank" rel="noopener">Wafer-Map Defect Detection with Custom CUDA Kernels ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Semiconductor wafer-map defect classification on WM-811K (811,457 real fab wafer maps, 172,950 labelled, nine patterns, 85% defect-free). Custom CUDA kernels written as a PyTorch extension for packed variable-size preprocessing and 3x3 median and convolution filters, in naive and shared-memory tiled versions, each verified against PyTorch to zero error on real batches: the median filter ran 693x faster than PyTorch's unfold path and the packed preprocess 449x faster than a per-wafer loop, while cuDNN beat the hand-written convolution and tiling did not help at 3x3 on 64x64 maps, both stated as measured. A compact CNN with class-balanced sampling reached test macro-F1 0.86 and 96.4% accuracy; PyTorch DDP on two T4s gave 1.81x throughput at 90.3% scaling efficiency. Run on Kaggle; every number from committed results files.</p>
+                        <div class="proj-stack">CUDA C++ · PyTorch extension · PyTorch DDP · NCCL · AMP · Kaggle T4 · pytest · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="papers/depth-completion-msml604.pdf" target="_blank" rel="noopener">Sparse-to-Dense Depth Completion Using Regularized Optimization (paper, PDF) ↗</a></div>
                     <div>
                         <p class="proj-desc">Formulated depth completion as a constrained optimization over the dense depth map (data fidelity, smoothness, edge-aware and coarse-consistency terms, non-negativity by projection). Over 5,000 NYU Depth V2 samples at 5% observed depth, the full objective cut RMSE 33% vs data-only; L-BFGS matched Adam's accuracy at 3.2x the speed. MSML604 team project.</p>
