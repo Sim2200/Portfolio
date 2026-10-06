@@ -1194,6 +1194,14 @@
                 </li>
                 <li class="proj">
                     <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/edge-infer-cpp" target="_blank" rel="noopener">Edge Inference Server in C++ ↗</a></div>
+                    <div>
+                        <p class="proj-desc">A C++20 inference server on Linux built on the ONNX Runtime C++ API, with a hand-written serving layer: a bounded MPMC queue, a lock-free ring buffer to compare it with, a thread pool, dynamic micro-batching, an HTTP endpoint and Prometheus metrics. Measured on 4 pinned cores: int8 ran ResNet-50 2.06x faster with 68% less memory; a thread sweep showed four single-threaded workers beat one four-threaded session 2x, and retuning the server from it raised capacity 66%. An AVX2 preprocessing kernel using 32-bit gathers ran 1.87x faster than scalar, while the NEON version barely helped without a gather instruction and batching did not help the CNN on CPU, both reported as measured. 38 GoogleTest cases under AddressSanitizer and UBSan, Google Benchmark, CI on x86 and arm64.</p>
+                        <div class="proj-stack">C++20 · CMake · ONNX Runtime C++ API · AVX2 / NEON · GoogleTest · Google Benchmark · ASan / UBSan · Prometheus · Docker · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="papers/depth-completion-msml604.pdf" target="_blank" rel="noopener">Sparse-to-Dense Depth Completion Using Regularized Optimization (paper, PDF) ↗</a></div>
                     <div>
                         <p class="proj-desc">Formulated depth completion as a constrained optimization over the dense depth map (data fidelity, smoothness, edge-aware and coarse-consistency terms, non-negativity by projection). Over 5,000 NYU Depth V2 samples at 5% observed depth, the full objective cut RMSE 33% vs data-only; L-BFGS matched Adam's accuracy at 3.2x the speed. MSML604 team project.</p>
