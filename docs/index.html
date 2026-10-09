@@ -873,12 +873,12 @@
                         </div>
                         <div>
                             <h4>Result</h4>
-                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×. On GKE, a 6-minute 4× spike stayed 99.8% within SLA while the HPA and cluster autoscaler added pods and a node in 81 s. Measured energy per inference with powermetrics: ONNX Runtime int8 ResNet-50 at 0.79 J vs 3.75 J for Core ML fp32 on the same CPU, and 0.15 J for the fast tier's MobileNetV3.</p>
+                            <p><span class="stat">2,721 → 192 ms</span>p95 at 2× capacity, with 99.8% of requests within the SLA and zero errors, while keeping accuracy 4 points above the always-fast option. A faulty canary was rolled back in 16 s with no client-visible errors. Found and fixed a CFS-throttling issue in ONNX Runtime that cut p95 by 3.8×. On GKE, a 6-minute 4× spike stayed 99.8% within SLA while the HPA and cluster autoscaler added pods and a node in 81 s. Measured energy per inference with powermetrics: ONNX Runtime int8 ResNet-50 at 0.79 J vs 3.75 J for Core ML fp32 on the same CPU, and 0.15 J for the fast tier's MobileNetV3. Added Triton Inference Server as a routable tier (KServe v2 protocol) and load-tested it on a T4: two Triton instances cut p95 at 60 req/s from 230 ms to 148 ms against the FastAPI GPU server, while Triton's dynamic batching lowered capacity to 40 req/s because image decoding inside the Python backend serialised each batch, a result reported as measured.</p>
                         </div>
                     </div>
 
                     <ul class="chips">
-                        <li>Python</li><li>FastAPI</li><li>ONNX Runtime</li><li>int8 quantization</li><li>Kubernetes (GKE)</li><li>Prometheus</li><li>OpenTelemetry</li>
+                        <li>Python</li><li>FastAPI</li><li>ONNX Runtime</li><li>int8 quantization</li><li>Triton Inference Server</li><li>Kubernetes (GKE)</li><li>Prometheus</li><li>OpenTelemetry</li>
                     </ul>
                 </div>
             </article>
