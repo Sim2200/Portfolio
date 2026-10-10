@@ -1138,58 +1138,10 @@
             <ul class="proj-list">
                 <li class="proj">
                     <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/portfolio-risk-analytics" target="_blank" rel="noopener">Portfolio Risk Analytics ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Portfolio construction and risk on free daily data (30 large US stocks plus SPY and AGG, 2010 to 2026; Fama-French factors): equal weight, min-variance, max-Sharpe and risk-parity portfolios with sample and Ledoit-Wolf covariance, backtested walk-forward (36-month fit, monthly rebalance, 10% cap, 10 bps costs) with a tested no-look-ahead guarantee. Out of sample 2013 to 2026, equal weight reached Sharpe 0.89 against SPY 0.80 and 60/40 0.76; max-Sharpe trailed with 164% annual turnover, and Ledoit-Wolf shrinkage (2.6% intensity on 756-day windows) made no material difference, both reported as found. One-day 99% VaR and CVaR by historical, parametric and Monte Carlo methods with Kupiec backtests (the 250-day historical VaR was rejected for every portfolio: 54 breaches versus 31.6 expected), COVID 2020 and 2022 stress windows, and FF5 plus momentum attribution with Newey-West errors (no significant alpha). 69 tests, CI; every number from committed results files, with the survivorship caveat stated.</p>
-                        <div class="proj-stack">Python · pandas · NumPy · SciPy · scikit-learn · statsmodels · yfinance · Ken French data · pytest · GitHub Actions</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/sla-aware-ml-serving-platform" target="_blank" rel="noopener">SLA-Aware Multi-Variant ML Serving Platform ↗</a></div>
-                    <div>
-                        <p class="proj-desc">A model-serving platform on Kubernetes (AWS EKS) with a high-accuracy and a fast model variant and an SLA-aware router that shifts traffic to the fast model when the latency SLA is at risk, plus HPA autoscaling, Prometheus/Grafana monitoring and canary rollouts. Under high load, p95 latency fell from 30+ s to 5 s and errors from 5–10% to 0–2%. The Inference Gateway (case study 01) is a from-scratch rebuild of this idea with reproducible measurements.</p>
-                        <div class="proj-stack">Python · FastAPI · ONNX · Kubernetes · AWS EKS · Locust</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/grocery-price-optimizer" target="_blank" rel="noopener">Grocery Price Optimizer ↗</a></div>
                     <div>
                         <p class="proj-desc">Full-stack app that turns receipt photos into a per-store price database (LLM vision extraction with structured outputs, human review, rules + fuzzy product matching, unit-price normalization), then solves a MILP to pick which stores to visit, trading item prices against trip costs. Beats single-store and per-item greedy baselines in benchmarks. Also has price-drop alerts, spending insights and a recipe-to-list assistant built on LLM tool calling. Shipped with Docker, GitHub Actions CI, a Helm chart, OpenTelemetry tracing, Prometheus metrics and JSON logs; deployed once with Terraform to AWS EKS (2 nodes) and RDS Postgres behind a load balancer, healthy 80 s after install with API p50 under 70 ms, then destroyed the same day; 164 Python tests. A measured frontend pass (Lighthouse mobile, before and after on the same machine) took JavaScript per page from 397–809 KiB to 115–124 KiB with on-demand chart loading and gzip, performance scores from 71–93 to 98–99 and accessibility to 100 on every page; a debounced, keyboard-accessible product typeahead sends 1 search request per typed query instead of 10, and prices and insights render read-only offline from cached data, with Slow 3G time to content down from 25.6 s to 11.0 s. Vitest, Playwright screenshot/overflow tests at five widths and Lighthouse CI budgets run on every pull request.</p>
                         <div class="proj-stack">Python · FastAPI · SQLAlchemy · PuLP (MILP) · React / Next.js · TypeScript · Vitest · Playwright · Lighthouse CI · Docker · Helm · Terraform · AWS (EKS, RDS) · OpenTelemetry</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/retail-analytics-warehouse" target="_blank" rel="noopener">Retail Analytics Warehouse ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Dimensional warehouse built with dbt that runs unchanged on DuckDB locally and on BigQuery (98 of 98 checks on both, the BigQuery build billing 1.29 GiB at $0.008): a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. The same stream also runs on Google Cloud as Pub/Sub → Dataflow (Beam) → BigQuery, measured at the same rate with the latency difference explained. Synthetic data, every number from a real run.</p>
-                        <div class="proj-stack">dbt · DuckDB · BigQuery · SQL · Kafka · Flink (PyFlink) · Pub/Sub · Dataflow (Beam) · Docker · GitHub Actions · Python</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/realtime-fraud-detection" target="_blank" rel="noopener">Real-Time Fraud Detection ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Fraud detection on 284,807 real card transactions (0.17% fraud) with a strict time-based split. XGBoost, Random Forest, LightGBM and logistic regression across three imbalance strategies; unsupervised Isolation Forest and autoencoder detectors; K-means fraud segments (one holds 44% of frauds at 16.6x the base rate); isotonic calibration with a cost-based threshold that cuts expected loss from $2,633 to $646 per 10,000 transactions; SHAP; 5-seed stability. Differentially private training (DP-SGD) with a measured privacy/utility curve; ONNX, int8 and Core ML export at p95 0.04 ms per transaction; Kafka to Spark Structured Streaming scoring at 2,000 events/s that reproduces the batch alerts exactly; PSI drift monitoring. The whole lifecycle also runs as a Vertex AI Pipeline (validate, train, evaluate with a promotion gate, Model Registry, endpoint, batch prediction, weekly schedule): one measured run at test PR-AUC 0.80, endpoint p50 68 ms, about $0.40. The stream also runs on Google Cloud as Pub/Sub → Dataflow (Beam, ONNX Runtime) → BigQuery with per-minute score-drift windows, flagging exactly the same 136 transactions as the batch evaluation.</p>
-                        <div class="proj-stack">Python · XGBoost · PyTorch · Opacus · ONNX Runtime · Core ML · Kafka · Spark · Pub/Sub · Dataflow · BigQuery · Vertex AI Pipelines · Docker · GitHub Actions</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/rag-eval-service" target="_blank" rel="noopener">RAG Question Answering with an Evaluation Harness ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Retrieval-augmented question answering over 2,067 Wikipedia paragraphs (SQuAD dev) with an evaluation harness that scores answers against gold spans, not just an LLM judge. Compared BM25, dense embeddings (Vertex AI text-embedding-005 in BigQuery vector search) and a hybrid fusion: hybrid retrieves the right paragraph in the top 5 for 94.6% of questions, and Gemini 2.5 Flash reaches EM 0.78 / F1 0.86 with it against 0.09 / 0.14 with no retrieval, at $0.29 per 1,000 questions. Served from FastAPI on Cloud Run; a load test found the async route serialising requests and the fix took throughput from 2.4 to 12 requests/s on one instance. Every number from a real run.</p>
-                        <div class="proj-stack">Python · Vertex AI · Gemini · BigQuery · FastAPI · Cloud Run · rank-bm25 · pytest · GitHub Actions</div>
-                    </div>
-                </li>
-                <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/agent-eval-java" target="_blank" rel="noopener">Agent Evaluation Service (Java) ↗</a></div>
-                    <div>
-                        <p class="proj-desc">A Java 21 / Spring Boot 3 service that runs YAML evaluation suites against AI agent outputs: strategy-pattern evaluators (contains, regex, JSON Schema, must-not-fire negative assertions, LLM judge), a sealed outcome type, repeat-N banded scoring, per-check precision and recall of alerts, and run-to-run regression diffs, persisted in PostgreSQL. 90 JUnit 5 tests with Mockito and a Testcontainers integration test, 84.7% line coverage. Benchmarked virtual threads against fixed pools on a simulated 50 to 200 ms judge: 7,205 cases/s at a 1,000 bound versus 247 for a 32-thread pool. Every number from a committed results file.</p>
-                        <div class="proj-stack">Java 21 · Spring Boot · Spring Data JPA · PostgreSQL · Flyway · JUnit 5 · Mockito · Testcontainers · JaCoCo · Docker · GitHub Actions</div>
                     </div>
                 </li>
                 <li class="proj">
@@ -1206,6 +1158,54 @@
                     <div>
                         <p class="proj-desc">A C++20 inference server on Linux built on the ONNX Runtime C++ API, with a hand-written serving layer: a bounded MPMC queue, a lock-free ring buffer to compare it with, a thread pool, dynamic micro-batching, an HTTP endpoint and Prometheus metrics. Measured on 4 pinned cores: int8 ran ResNet-50 2.06x faster with 68% less memory; a thread sweep showed four single-threaded workers beat one four-threaded session 2x, and retuning the server from it raised capacity 66%. An AVX2 preprocessing kernel using 32-bit gathers ran 1.87x faster than scalar, while the NEON version barely helped without a gather instruction and batching did not help the CNN on CPU, both reported as measured. 38 GoogleTest cases under AddressSanitizer and UBSan, Google Benchmark, CI on x86 and arm64.</p>
                         <div class="proj-stack">C++20 · CMake · ONNX Runtime C++ API · AVX2 / NEON · GoogleTest · Google Benchmark · ASan / UBSan · Prometheus · Docker · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/realtime-fraud-detection" target="_blank" rel="noopener">Real-Time Fraud Detection ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Fraud detection on 284,807 real card transactions (0.17% fraud) with a strict time-based split. XGBoost, Random Forest, LightGBM and logistic regression across three imbalance strategies; unsupervised Isolation Forest and autoencoder detectors; K-means fraud segments (one holds 44% of frauds at 16.6x the base rate); isotonic calibration with a cost-based threshold that cuts expected loss from $2,633 to $646 per 10,000 transactions; SHAP; 5-seed stability. Differentially private training (DP-SGD) with a measured privacy/utility curve; ONNX, int8 and Core ML export at p95 0.04 ms per transaction; Kafka to Spark Structured Streaming scoring at 2,000 events/s that reproduces the batch alerts exactly; PSI drift monitoring. The whole lifecycle also runs as a Vertex AI Pipeline (validate, train, evaluate with a promotion gate, Model Registry, endpoint, batch prediction, weekly schedule): one measured run at test PR-AUC 0.80, endpoint p50 68 ms, about $0.40. The stream also runs on Google Cloud as Pub/Sub → Dataflow (Beam, ONNX Runtime) → BigQuery with per-minute score-drift windows, flagging exactly the same 136 transactions as the batch evaluation.</p>
+                        <div class="proj-stack">Python · XGBoost · PyTorch · Opacus · ONNX Runtime · Core ML · Kafka · Spark · Pub/Sub · Dataflow · BigQuery · Vertex AI Pipelines · Docker · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/retail-analytics-warehouse" target="_blank" rel="noopener">Retail Analytics Warehouse ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Dimensional warehouse built with dbt that runs unchanged on DuckDB locally and on BigQuery (98 of 98 checks on both, the BigQuery build billing 1.29 GiB at $0.008): a star schema with SCD Type 2 customer history, enforced model contracts, PII tagging and masking with role-based analyst views, freshness checks and a per-build data-quality log, all over 1.19M order lines with 84 tests passing in under 5 seconds. Alongside it, a Kafka to PyFlink streaming pipeline computes one-minute order metrics with event-time watermarks and lands them in the same warehouse: 2,000 events/s sustained with results queryable 2.3 s after each window closes, and 18,600 events/s into Kafka in a burst. The same stream also runs on Google Cloud as Pub/Sub → Dataflow (Beam) → BigQuery, measured at the same rate with the latency difference explained. Synthetic data, every number from a real run.</p>
+                        <div class="proj-stack">dbt · DuckDB · BigQuery · SQL · Kafka · Flink (PyFlink) · Pub/Sub · Dataflow (Beam) · Docker · GitHub Actions · Python</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/rag-eval-service" target="_blank" rel="noopener">RAG Question Answering with an Evaluation Harness ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Retrieval-augmented question answering over 2,067 Wikipedia paragraphs (SQuAD dev) with an evaluation harness that scores answers against gold spans, not just an LLM judge. Compared BM25, dense embeddings (Vertex AI text-embedding-005 in BigQuery vector search) and a hybrid fusion: hybrid retrieves the right paragraph in the top 5 for 94.6% of questions, and Gemini 2.5 Flash reaches EM 0.78 / F1 0.86 with it against 0.09 / 0.14 with no retrieval, at $0.29 per 1,000 questions. Served from FastAPI on Cloud Run; a load test found the async route serialising requests and the fix took throughput from 2.4 to 12 requests/s on one instance. Every number from a real run.</p>
+                        <div class="proj-stack">Python · Vertex AI · Gemini · BigQuery · FastAPI · Cloud Run · rank-bm25 · pytest · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/portfolio-risk-analytics" target="_blank" rel="noopener">Portfolio Risk Analytics ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Portfolio construction and risk on free daily data (30 large US stocks plus SPY and AGG, 2010 to 2026; Fama-French factors): equal weight, min-variance, max-Sharpe and risk-parity portfolios with sample and Ledoit-Wolf covariance, backtested walk-forward (36-month fit, monthly rebalance, 10% cap, 10 bps costs) with a tested no-look-ahead guarantee. Out of sample 2013 to 2026, equal weight reached Sharpe 0.89 against SPY 0.80 and 60/40 0.76; max-Sharpe trailed with 164% annual turnover, and Ledoit-Wolf shrinkage (2.6% intensity on 756-day windows) made no material difference, both reported as found. One-day 99% VaR and CVaR by historical, parametric and Monte Carlo methods with Kupiec backtests (the 250-day historical VaR was rejected for every portfolio: 54 breaches versus 31.6 expected), COVID 2020 and 2022 stress windows, and FF5 plus momentum attribution with Newey-West errors (no significant alpha). 69 tests, CI; every number from committed results files, with the survivorship caveat stated.</p>
+                        <div class="proj-stack">Python · pandas · NumPy · SciPy · scikit-learn · statsmodels · yfinance · Ken French data · pytest · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/agent-eval-java" target="_blank" rel="noopener">Agent Evaluation Service (Java) ↗</a></div>
+                    <div>
+                        <p class="proj-desc">A Java 21 / Spring Boot 3 service that runs YAML evaluation suites against AI agent outputs: strategy-pattern evaluators (contains, regex, JSON Schema, must-not-fire negative assertions, LLM judge), a sealed outcome type, repeat-N banded scoring, per-check precision and recall of alerts, and run-to-run regression diffs, persisted in PostgreSQL. 90 JUnit 5 tests with Mockito and a Testcontainers integration test, 84.7% line coverage. Benchmarked virtual threads against fixed pools on a simulated 50 to 200 ms judge: 7,205 cases/s at a 1,000 bound versus 247 for a 32-thread pool. Every number from a committed results file.</p>
+                        <div class="proj-stack">Java 21 · Spring Boot · Spring Data JPA · PostgreSQL · Flyway · JUnit 5 · Mockito · Testcontainers · JaCoCo · Docker · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/sla-aware-ml-serving-platform" target="_blank" rel="noopener">SLA-Aware Multi-Variant ML Serving Platform ↗</a></div>
+                    <div>
+                        <p class="proj-desc">A model-serving platform on Kubernetes (AWS EKS) with a high-accuracy and a fast model variant and an SLA-aware router that shifts traffic to the fast model when the latency SLA is at risk, plus HPA autoscaling, Prometheus/Grafana monitoring and canary rollouts. Under high load, p95 latency fell from 30+ s to 5 s and errors from 5–10% to 0–2%. The Inference Gateway (case study 01) is a from-scratch rebuild of this idea with reproducible measurements.</p>
+                        <div class="proj-stack">Python · FastAPI · ONNX · Kubernetes · AWS EKS · Locust</div>
                     </div>
                 </li>
                 <li class="proj">
@@ -1233,14 +1233,6 @@
                     </div>
                 </li>
                 <li class="proj">
-                    <div class="proj-year">2026</div>
-                    <div class="proj-name"><a href="https://github.com/Sim2200/HW3-Extra-Credit-Project" target="_blank" rel="noopener">Spotify Artist Search with Hashing ↗</a></div>
-                    <div>
-                        <p class="proj-desc">Hash-table indexes over a 1.2M-song Spotify dataset for fast artist, song, and album lookup, with a Streamlit search UI.</p>
-                        <div class="proj-stack">Python · Hashing · Streamlit</div>
-                    </div>
-                </li>
-                <li class="proj">
                     <div class="proj-year">2025</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/High-Risk-Diet-Prediction" target="_blank" rel="noopener">High-Risk Diet Prediction ↗</a></div>
                     <div>
@@ -1262,6 +1254,14 @@
                     <div>
                         <p class="proj-desc">YOLOv5 detection with Kalman filtering and Hungarian matching, reaching 82% MOTA and 76% IDF1 on the MOT dataset.</p>
                         <div class="proj-stack">YOLOv5 · Kalman filter · OpenCV</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/HW3-Extra-Credit-Project" target="_blank" rel="noopener">Spotify Artist Search with Hashing ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Hash-table indexes over a 1.2M-song Spotify dataset for fast artist, song, and album lookup, with a Streamlit search UI.</p>
+                        <div class="proj-stack">Python · Hashing · Streamlit</div>
                     </div>
                 </li>
                 <li class="proj">
