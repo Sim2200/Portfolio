@@ -1138,6 +1138,14 @@
             <ul class="proj-list">
                 <li class="proj">
                     <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/portfolio-risk-analytics" target="_blank" rel="noopener">Portfolio Risk Analytics ↗</a></div>
+                    <div>
+                        <p class="proj-desc">Portfolio construction and risk on free daily data (30 large US stocks plus SPY and AGG, 2010 to 2026; Fama-French factors): equal weight, min-variance, max-Sharpe and risk-parity portfolios with sample and Ledoit-Wolf covariance, backtested walk-forward (36-month fit, monthly rebalance, 10% cap, 10 bps costs) with a tested no-look-ahead guarantee. Out of sample 2013 to 2026, equal weight reached Sharpe 0.89 against SPY 0.80 and 60/40 0.76; max-Sharpe trailed with 164% annual turnover, and Ledoit-Wolf shrinkage (2.6% intensity on 756-day windows) made no material difference, both reported as found. One-day 99% VaR and CVaR by historical, parametric and Monte Carlo methods with Kupiec backtests (the 250-day historical VaR was rejected for every portfolio: 54 breaches versus 31.6 expected), COVID 2020 and 2022 stress windows, and FF5 plus momentum attribution with Newey-West errors (no significant alpha). 69 tests, CI; every number from committed results files, with the survivorship caveat stated.</p>
+                        <div class="proj-stack">Python · pandas · NumPy · SciPy · scikit-learn · statsmodels · yfinance · Ken French data · pytest · GitHub Actions</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/sla-aware-ml-serving-platform" target="_blank" rel="noopener">SLA-Aware Multi-Variant ML Serving Platform ↗</a></div>
                     <div>
                         <p class="proj-desc">A model-serving platform on Kubernetes (AWS EKS) with a high-accuracy and a fast model variant and an SLA-aware router that shifts traffic to the fast model when the latency SLA is at risk, plus HPA autoscaling, Prometheus/Grafana monitoring and canary rollouts. Under high load, p95 latency fell from 30+ s to 5 s and errors from 5–10% to 0–2%. The Inference Gateway (case study 01) is a from-scratch rebuild of this idea with reproducible measurements.</p>
