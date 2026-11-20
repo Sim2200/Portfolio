@@ -1154,6 +1154,14 @@
                 </li>
                 <li class="proj">
                     <div class="proj-year">2026</div>
+                    <div class="proj-name"><a href="https://github.com/Sim2200/dit-cifar10" target="_blank" rel="noopener">Diffusion Transformer from Scratch on CIFAR-10 ↗</a></div>
+                    <div>
+                        <p class="proj-desc">A Diffusion Transformer (DiT) written from scratch in PyTorch: patchify, fixed sin-cos position embeddings, adaLN-Zero blocks, learned-variance loss and classifier-free guidance, with 36 CPU tests. Three sizes (S/4, S/2 and B/4) trained for 100k steps each on Kaggle T4s, the larger two with PyTorch DDP, and evaluated with one pipeline (FID, Inception Score, precision/recall, class accuracy and a memorisation check) that was also applied to the pretrained DDPM U-Net baseline. Findings, every one from committed results: sample quality tracks forward Gflops rather than parameter count, with the 4x-larger B/4 landing within 1 FID of S/2 at equal compute; the sampling knee sits at about 50 steps for every model, and DPM-Solver++ at 10 steps matches 1000-step DDPM quality at 35x lower cost; guidance scale 2 is the best FID for all three DiTs (S/2 reaches 16.3 at 91% class accuracy); and the pretrained U-Net, with 8x the training steps, still beat every DiT, reported as such. FID is on 10k samples, so the page compares only within its own table.</p>
+                        <div class="proj-stack">PyTorch · DDP / torchrun · AMP · diffusers (DPM-Solver++) · torch-fidelity · Kaggle 2x T4 · pytest</div>
+                    </div>
+                </li>
+                <li class="proj">
+                    <div class="proj-year">2026</div>
                     <div class="proj-name"><a href="https://github.com/Sim2200/edge-infer-cpp" target="_blank" rel="noopener">Edge Inference Server in C++ ↗</a></div>
                     <div>
                         <p class="proj-desc">A C++20 inference server on Linux built on the ONNX Runtime C++ API, with a hand-written serving layer: a bounded MPMC queue, a lock-free ring buffer to compare it with, a thread pool, dynamic micro-batching, an HTTP endpoint and Prometheus metrics. Measured on 4 pinned cores: int8 ran ResNet-50 2.06x faster with 68% less memory; a thread sweep showed four single-threaded workers beat one four-threaded session 2x, and retuning the server from it raised capacity 66%. An AVX2 preprocessing kernel using 32-bit gathers ran 1.87x faster than scalar, while the NEON version barely helped without a gather instruction and batching did not help the CNN on CPU, both reported as measured. 38 GoogleTest cases under AddressSanitizer and UBSan, Google Benchmark, CI on x86 and arm64.</p>
